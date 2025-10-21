@@ -11,6 +11,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
+
+/* table */
+table {
+  table-layout: fixed;
+  width: 100%;
+  overflow-wrap: normal;
+  border-spacing: 15px;
+}
+th {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  color: black;
+  font-weight: normal;
+}
+
 </style>
 </head>
 <body>
@@ -23,10 +39,10 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
+    <a href="#tema1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tema 1</a> 
+    <a href="#tema2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tema 2</a> 
+    <a href="#tema3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tema 3</a> 
+    <a href="#gruppe" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Gruppe</a> 
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     <a href="./quiz.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Quiz</a>
   </div>
@@ -45,9 +61,9 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Interior Design</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
+  <div class="w3-container" style="margin-top:80px" id="tema1">
+    <h1 class="w3-jumbo"><b>Opplæringsmateriell Cybersikkerhet</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Tema 1</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
   
@@ -75,65 +91,19 @@ body {font-size:16px;}
     </div>
   </div>
 
-  <!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
+  <!-- Tema 2 -->
+  <div class="w3-container" id="tema2" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Tema 2.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
-    <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    <p>Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua!</p>
+    <p>lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
     dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
   </div>
-  
-  <!-- Designers -->
-  <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>The best team in the world.</p>
-    <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <p><b>Our designers are thoughtfully chosen</b>:</p>
-  </div>
 
-  <!-- The Team -->
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Jane Doe</h3>
-          <p class="w3-opacity">Designer</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-        <div class="w3-container">
-          <h3>Mike Ross</h3>
-          <p class="w3-opacity">Architect</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Packages / Pricing Tables -->
-  <div class="w3-container" id="packages" style="margin-top:75px">
+  <!-- Tema 3 -->
+  <div class="w3-container" id="tema3" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
@@ -175,6 +145,46 @@ body {font-size:16px;}
         </li>
       </ul>
     </div>
+  </div>
+
+  <!-- Tema 3 -->
+  <div class="w3-container" id="gruppe" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Tema 3.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>The best team in the world.</p>
+    <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <p><b>Gruppemedlemmer</b>:</p>
+  </div>
+
+  <!-- The Team -->
+  <div>
+    <table>
+      <tr>
+        <th class="w3-light-grey">
+          <h3>Clemens</h3>
+          <p class="w3-opacity">Teknisk Ansvarlig</p>
+          <p>Noe greier om tekniske ting</p>
+        </th>
+        <th class="w3-light-grey">
+          <h3>Albert</h3>
+          <p class="w3-opacity">Prosjektleder</p>
+          <p>Noe greier om prosjektleding</p>
+        </th>
+        <th class="w3-light-grey">
+          <h3>Oskar</h3>
+          <p class="w3-opacity">Fagansvarlig</p>
+          <p>Noe greier om det faglige</p>
+        </th>
+        <th class="w3-light-grey">
+          <h3>Sivert</h3>
+          <p class="w3-opacity">Pedagogisk ansvarlig</p>
+          <p>Noe greier om å tilpasse tema til målgruppe</p>
+        </th>
+      </tr>
+    </table>
   </div>
   
   <!-- Contact -->
