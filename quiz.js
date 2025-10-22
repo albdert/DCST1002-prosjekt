@@ -11,7 +11,7 @@ const questions = [
     },
 
     {
-        question: "How many players are allowed on a soccer pitch ?",
+        question: "How many players are allowed on a soccer pit ?",
         optionA: "10 players",
         optionB: "11 players",
         optionC: "9 players",
