@@ -252,61 +252,75 @@ let indexNumber = 0 //will be used in displaying next question
 // function for displaying next question in the array to dom
 //also handles displaying players and quiz information to dom
 function NextQuestion(index) {
-    handleQuestions()
-    const currentQuestion = shuffledQuestions[index]
-    document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
+    handleQuestions();
+    const currentQuestion = shuffledQuestions[index];
+    document.getElementById("question-number").innerHTML = questionNumber;
+    document.getElementById("player-score").innerHTML = playerScore;
     document.getElementById("display-question").innerHTML = currentQuestion.question;
     document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
     document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
     document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
 
+    // Remove all highlight classes from options
+    document.querySelectorAll('.option').forEach(label => {
+        label.classList.remove('selected', 'correct', 'wrong');
+    });
 }
+// Highlight selected option on click
+document.querySelectorAll('.option').forEach(label => {
+    label.addEventListener('click', function() {
+        document.querySelectorAll('.option').forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+        // Also check the radio input
+        const input = this.querySelector('input[type="radio"]');
+        if (input) input.checked = true;
+    });
+});
 
 
 function checkForAnswer() {
-    const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
-    const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
-    const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
-    let correctOption = null
+    const currentQuestion = shuffledQuestions[indexNumber];
+    const currentQuestionAnswer = currentQuestion.correctOption;
+    const options = document.getElementsByName("option");
+    let correctLabel = null;
+    let selectedLabel = null;
+    let selectedValue = null;
 
     options.forEach((option) => {
         if (option.value === currentQuestionAnswer) {
-            //get's correct's radio input with correct answer
-            correctOption = option.labels[0].id
+            correctLabel = option.labels && option.labels[0] ? option.labels[0] : null;
         }
-    })
+        if (option.checked) {
+            selectedLabel = option.labels && option.labels[0] ? option.labels[0] : null;
+            selectedValue = option.value;
+        }
+    });
 
-    //checking to make sure a radio input has been checked or an option being chosen
-    if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
-        document.getElementById('option-modal').style.display = "flex"
+    // If no option selected, show modal
+    if (!selectedLabel) {
+        document.getElementById('option-modal').style.display = "flex";
+        return;
     }
 
-    //checking if checked radio button is same as answer
-    options.forEach((option) => {
-        if (option.checked === true && option.value === currentQuestionAnswer) {
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            playerScore++ //adding to player's score
-            indexNumber++ //adding 1 to index so has to display next question..
-            //set to delay question number till when next question loads
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
-        }
+    // Remove previous highlight classes
+    document.querySelectorAll('.option').forEach(label => {
+        label.classList.remove('selected', 'correct', 'wrong');
+    });
 
-        else if (option.checked && option.value !== currentQuestionAnswer) {
-            const wrongLabelId = option.labels[0].id
-            document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            wrongAttempt++ //adds 1 to wrong attempts 
-            indexNumber++
-            //set to delay question number till when next question loads
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
-        }
-    })
+    // Show correct/wrong highlight
+    if (selectedValue === currentQuestionAnswer) {
+        if (selectedLabel) selectedLabel.classList.add('correct');
+        playerScore++;
+    } else {
+        if (selectedLabel) selectedLabel.classList.add('wrong');
+        if (correctLabel) correctLabel.classList.add('correct');
+        wrongAttempt++;
+    }
+    indexNumber++;
+    setTimeout(() => {
+        questionNumber++;
+    }, 1000);
 }
 
 
@@ -330,10 +344,9 @@ function handleNextQuestion() {
 
 //sets options background back to null after display the right/wrong colors
 function resetOptionBackground() {
-    const options = document.getElementsByName("option");
-    options.forEach((option) => {
-        document.getElementById(option.labels[0].id).style.backgroundColor = ""
-    })
+    document.querySelectorAll('.option').forEach(label => {
+        label.classList.remove('selected', 'correct', 'wrong');
+    });
 }
 
 // unchecking all radio buttons for next question(can be done with map or foreach loop also)
@@ -351,15 +364,15 @@ function handleEndGame() {
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
-        remark = "Bad Grades, Keep Practicing."
+        remark = "Bare å øve mer!."
         remarkColor = "red"
     }
     else if (playerScore >= 4 && playerScore < 7) {
-        remark = "Average Grades, You can do better."
+        remark = "Midt på treet. "
         remarkColor = "orange"
     }
     else if (playerScore >= 7) {
-        remark = "Excellent, Keep the good work going."
+        remark = "Dataen din er veldig trygg!"
         remarkColor = "green"
     }
     const playerGrade = (playerScore / 10) * 100
