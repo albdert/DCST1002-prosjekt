@@ -13,6 +13,60 @@ body {font-size:16px;}
 .w3-half img:hover{opacity:1}
 .w3-xxxlarge.w3-text-blue-grey {margin-top: 50px;}
 
+/* Grid wrapper */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 columns */
+  gap: 20px;
+  max-width: 1100px;
+  margin: 24px auto;
+  align-items: stretch; /* make rows equal height when possible */
+  padding: 0 12px;
+}
+
+/* Each box */
+.box {
+  background: #f7f9fb;         /* soft background */
+  border: 1px solid #d1d7dd;   /* subtle border */
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  min-height: 180px;           /* ensures consistent appearance */
+}
+
+/* header inside box */
+.box > h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #08304a;
+}
+
+/* content area grows so footer (if any) stays at bottom */
+.box-body {
+  flex: 1 1 auto;
+  color: #2b3b45;
+  line-height: 1.45;
+}
+
+/* hover effect */
+.box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+/* responsive: stack to one column on small screens */
+@media (max-width: 700px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
 /* table */
 table {
   table-layout: fixed;
@@ -180,9 +234,10 @@ th {
       <h4><b>Ukjente minnepinner/USB enheter</b></h4>
 
       <p>
-        Hvis du finner en ukjent enhet og kobler den til datamaskinen din, kan en angriper få tilgang til alt du har, eller til og med 
-        slette alt du har gjort. <br>
-        Finner du en slik USB port, eller minnepinne som du ikke har sett før, gå til IT-ansvarlig med en gang!
+        Hvis du finner en ukjent enhet og kobler den til datamaskinen din,<br> kan en angriper få tilgang til alt du har, 
+        eller til og med 
+        slette alt du <br> 
+        har gjort. Finner du en slik USB port, eller minnepinne som du ikke har <br> sett før, gå til IT-ansvarlig med en gang!
       </p>
       <img src="img/dont_touch_usb.png" alt="usb" width="500" height="300" class="w3-margin-bottom">
     </div>
@@ -193,74 +248,95 @@ th {
   <div class="w3-container" id="tema3" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre trusler?</b></h1>
     <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
-    
-    <div class="w3-half">
-    <h2><b>Gode passordvaner</b></h2>
-    <p>Et av de aller viktigste tiltakene vi kan gjøre for å forhindre at våre egne kontoer ender i gale hender, 
-      er å ha gode passordvaner. Vi har samlet de tre viktigste prinsippene i et passord under. Så lenge man
-      følger disse, minsker man sjansen for at passordet ditt kan brytes av en hacker/angriper.</p>
 
-    <h4><b>Lange passord</b></h4>
-    <p>Aller først må man vite at jo lengre et passord er, jo sterkere er det. Dette har så klart unntak, men som
-       en generell regel bør passord være lengre enn 16 bokstaver. Hvis passordet er kortere vil det ta relativt 
-       kort tid å teste alle mulige passord for en rask datamaskin.</p>
-    
-    <!-- TILFELDIGE PASSORD -->
-    <h4><b>Tilfeldige passord</b></h4>
-    <p>Neste punkt er å gjøre passordet tilfeldig. Dette innebærer at man ikke bruker personlig informasjon som 
-      fødselsdato, navn og liknende.</p>
-    <p>Når passordet ikke inneholder personlig informasjon har ikke angripere muligheten til å gjette deler av 
-      passordet. Hvis man f.eks. bruker et svakt passord som <b>"TilfeldigOrd010175"</b> og fødselsdatoen din er 01.01.1975,
-      kan en angriper gjette at du har brukt dette i passordet. Siden passordet inneholder kun 12 andre bokstaver, 
-      vil det ikke ta lang tid å gjette for en datamaskin.</p>
+    <div class="grid-container">
+        <article class="box">
+          <h3>Gode passordvaner</h3>
+          <div class="box-body">
+            <p>Et av de aller viktigste tiltakene vi kan gjøre for å forhindre at våre egne kontoer ender i gale hender, 
+            er å ha gode passordvaner. Vi har samlet de tre viktigste prinsippene i et passord under. Så lenge man
+            følger disse, minsker man sjansen for at passordet ditt kan brytes av en hacker/angriper.</p>
+          </div>
+        </article>
+      
+         <article class="box">
+          <h3>Lange passord</h3>
+          <div class="box-body">
+            <p>Aller først må man vite at jo lengre et passord er, jo sterkere er det. Dette har så klart unntak, men som en generell regel bør 
+            passord være lengre enn 16 bokstaver. Hvis passordet er kortere vil det ta relativt kort tid å teste alle mulige passord for en rask datamaskin.</p>
+          </div>
+         </article>
+        
+          <article class="box">
+            <h3>Tilfeldige passord</h3>
+            <div class="box-body">
+              <p>Neste punkt er å gjøre passordet tilfeldig. Dette innebærer at man ikke bruker personlig informasjon som 
+                fødselsdato, navn og liknende.</p>
+              <p>Når passordet ikke inneholder personlig informasjon har ikke angripere muligheten til å gjette deler av 
+                passordet. Hvis man f.eks. bruker et svakt passord som <b>"TilfeldigOrd010175"</b> og fødselsdatoen din er 01.01.1975,
+                kan en angriper gjette at du har brukt dette i passordet. Siden passordet inneholder kun 12 andre bokstaver, 
+                vil det ikke ta lang tid å gjette for en datamaskin.</p>
 
-    <p>Vi kan anbefale to ganske enkle metoder å nå dette kravet.</p>
-    <ol>
-      <li><b>Bruk <i>passphrase</i> eller <i>passordfrase</i></b></li>
-      <p>Med en <i>passordfrase</i> menes en rekke tilfeldige ord koblet sammen til et langt "ord". Man kan eksempelvis
-         velge 5-7 (eller flere) tilfeldige ord og setter de sammen slik:</p>
-      <dl>
-        <dd>BilLøperBlåSnakkeBlomst</dd>
-      </dl>
-	    <p>Hvis man ønsker kan man også bruke mellomrom eller andre tegn mellom ordene for å gjøre det enda sterkere.</p>
+              <p>Vi kan anbefale to ganske enkle metoder å nå dette kravet.</p>
+              <ol>
+                <li><b>Bruk <i>passphrase</i> eller <i>passordfrase</i></b></li>
+                <p>Med en <i>passordfrase</i> menes en rekke tilfeldige ord koblet sammen til et langt "ord". Man kan eksempelvis
+                   velge 5-7 (eller flere) tilfeldige ord og setter de sammen slik:</p>
+                <dl>
+                  <dd>BilLøperBlåSnakkeBlomst</dd>
+                </dl>
+	              <p>Hvis man ønsker kan man også bruke mellomrom eller andre tegn mellom ordene for å gjøre det enda sterkere.</p>
+              
+                <li><b>Bruk en <i>password manager</i> eller <i>passordbehandler</i></b></li>
+                <p>Hvis man ønsker et enda sterkere passord, som man i tillegg ikke trenger å huske på, kan man bruke en 
+                  <i>passordbehandler</i>. Dette er et verktøy som genererer et sterkt passord for deg, og ofte lar deg velge hva 
+                  slags symboler som skal brukes og hvor langt det er. Et eksempel på et sterkt passord kan være noe som dette:</p>
+                <dl>
+                  <dd>Yuc8$RikA34%ZoPPao98t</dd>
+                </dl>
+              </ol>
 
-      <li><b>Bruk en <i>password manager</i> eller <i>passordbehandler</i></b></li>
-      <p>Hvis man ønsker et enda sterkere passord, som man i tillegg ikke trenger å huske på, kan man bruke en 
-        <i>passordbehandler</i>. Dette er et verktøy som genererer et sterkt passord for deg, og ofte lar deg velge hva 
-        slags symboler som skal brukes og hvor langt det er. Et eksempel på et sterkt passord kan være noe som dette:</p>
-      <dl>
-        <dd>Yuc8$RikA34%ZoPPao98t</dd>
-      </dl>
-    </ol>
+            </div>
+          </article>
 
-    <!-- UNIKE PASSORD -->
-    <h4><b>Unike passord</b></h4>
-    <p>Sist men ikke minst er det en god vane å opprette et nytt passord for hver tjeneste man benytter seg av. Hvis 
-      du bruker det samme passordet på alle sider du går inn på, vil en hacker som får tilgang på passordet ditt på én 
-      side kunne komme seg inn på alle kontoene dine. For å unngå dette burde enhver tjeneste du bruker få sitt eget 
-      sterke passord. Dette kan føles tungvint ut, spesielt siden man potensielt må huske på et titalls eller hundrevis 
-      av passord. Dette problemet kan igjen løses ved å bruke en <i>passordbehandler</i>. Den gjør jobben med å huske på 
-      passordene dine slik at du slipper.</p>
+          <article class="box">
+                   <h3>Unike passord</h3>
+                   <div class="box-body">
+                     <p>Sist men ikke minst er det en god vane å opprette et nytt passord for hver tjeneste man benytter seg av. Hvis 
+                      du bruker det samme passordet på alle sider du går inn på, vil en hacker som får tilgang på passordet ditt på én 
+                      side kunne komme seg inn på alle kontoene dine. For å unngå dette burde enhver tjeneste du bruker få sitt eget 
+                      sterke passord. Dette kan føles tungvint ut, spesielt siden man potensielt må huske på et titalls eller hundrevis 
+                      av passord. Dette problemet kan igjen løses ved å bruke en <i>passordbehandler</i>. Den gjør jobben med å huske på 
+                      passordene dine slik at du slipper.</p>
+                   </div>
+                 </article>
 
-    <!-- PASSORDBEHANDLER -->
-    <h4><b>passordbehandler</b></h4>
-    <p>Alle kravene til et sterkt passord kan enkelt nås ved å bruke en passordbehandler som nevnt tidligere. 
-      Passordbehandlere lagrer passord for deg, lar deg generere nye sterke passord, og ofte har de mulighet for 
-      autofylling av informasjon på nettsidene passord er knyttet til.</p>
-    <p>Det er mange alternativer, og det finnes ikke én som er bedre enn alle andre. Noen vil koste penger, og andre 
-      vil ha gode gratis-tilbud. Vi gir noen eksempler her, men vil anbefale at man undersøker litt på egenhånd hvilken 
-      man ønsker å bruke.</p>
-    <p>Noen eksempler er:</p>
-    <ul>
-      <!-- LEGG TIL LENKER HER-->
-      <li><a href="https://nordpass.com/plans/business/">NordPass (Abonnement)</a></li>
-      <li>RoboForm (Abonnement)</li>
-      <li>Proton Pass (godt gratis-tilbud)</li>
-      <li>Bitwarden (godt gratis-tilbud)</li>
-    </ul>
+                 <article class="box">
+                  <h3>Passordbehandler</h3>
+                  <div class="box-body">
+                    <p>Alle kravene til et sterkt passord kan enkelt nås ved å bruke en passordbehandler som nevnt tidligere. 
+                      Passordbehandlere lagrer passord for deg, lar deg generere nye sterke passord, og ofte har de mulighet for 
+                      autofylling av informasjon på nettsidene passord er knyttet til.</p>
+                    <p>Det er mange alternativer, og det finnes ikke én som er bedre enn alle andre. Noen vil koste penger, og andre 
+                      vil ha gode gratis-tilbud. Vi gir noen eksempler her, men vil anbefale at man undersøker litt på egenhånd hvilken 
+                       man ønsker å bruke.</p>
+                    <p>Noen eksempler er:</p>
+          
+                    <ul>
+                      <!-- LEGG TIL LENKER HER-->
+                      <li>NordPass (Abonnement)</li>
+                      <li>RoboForm (Abonnement)</li>
+                      <li>Proton Pass (godt gratis-tilbud)</li>
+                      <li>Bitwarden (godt gratis-tilbud)</li>
+                    </ul>
 
-    <!-- TO-FAKTOR-AUTENTISERING -->
-    <h4><b>To-faktor-autentisering</b></h4>
+                  </div>
+                </article>
+
+                <article class="box">
+                  <h3>To-faktor-autentisering</h3>
+                    <div class="box-body">
+                
     <p>I tillegg til å bruke passord som er <i>lange</i>, <i>tilfeldige</i>, og <i>unike</i>, er det lurt å benytte seg av enda et 
       sikkerhetslag. To-faktor-autentisering, eller <b>2FA</b>, er et sikkerhetstiltak som krever at en bruker autentiserer 
       seg med to forskjellige faktorer. Typisk er disse mail og passord, og en <b>2FA</b>-app. Dette forhindrer at noen får 
@@ -274,6 +350,11 @@ th {
     </ul>
     <p>Men det finnes mange andre alternativer og det er generelt liten forskjell mellom de. Det viktigste er å benytte seg av 
       <b>2FA</b>, ikke hvilken app du velger.</p>
+                    </div>
+                 </article>
+
+    </div>
+
 
 
     <!-- TILTAK / OPPSUMMERING MOT TRUSLER -->
