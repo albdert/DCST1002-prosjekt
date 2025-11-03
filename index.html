@@ -31,6 +31,12 @@ th {
   background-color: #607d8b;
  background-image: linear-gradient(to bottom, #607d8b 0%, #9b9b9b 100%);
  }
+
+.w3-center-block {
+  float: none; /* Override default float:left from w3-third */
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 </head>
 <body>
@@ -68,7 +74,7 @@ th {
   <div class="w3-container" style="margin-top:80px" id="tema1">
     <h1 class="w3-jumbo w3-center"><b>Cybersikkerhet i offentlig sektor</b></h1>
 
-    <p class = "w3-center" style=""font-size:16px; color:grey; margin-bottom:5px;">
+    <p class = "w3-center" style="font-size:16px; color:grey; margin-bottom:5px;">
       Gruppe 10: Albert, Clemens, Sivert og Oscar
     </p>
     
@@ -94,8 +100,10 @@ th {
       </div>
     </div>
 
-    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvorfor alle burde kunne cybersikkerhet!</b></h1>
-    <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+    <div class="w3-half w3-center-block">
+      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvorfor alle burde kunne cybersikkerhet!</b></h1>
+      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+    </div>
   
   </div>
   <!-- First grid -->
@@ -103,7 +111,7 @@ th {
 
   <div class="w3-row-pading">
     <div class="w3-container" style="margin-top:30px">
-      <div class="w3-half">
+      <div class="w3-half w3-center-block">
         <p>Det blir stadig viktigere å kunne grunnleggende cybersikkerhet i dagens samfunn. Økende digitalisering og bruk av teknologi i hverdag og på arbeidsplasser gjør oss mer sårbare for digitale trusler enn noen gang før. Dermed er det essensielt at vi 
         legger unna alderdomsmyter om at datasikkerhet kun er for de yngre og IT-ekseperter. Vi har derfor laget en opplæringsressurs for de av dere i offentlig sektor hvor det er desto viktigere å ha gode vaner innen nettbruk og den er spesielt laget for de med nesten ingen opplæring fra før.</p>
         <p>Digitale angrep og trusler VIL ramme alle som leser dette uansett den tekniske kompetansen. Ifølge ny statistikk blir det sendt ut 3.4 milliarder skadelige eposter daglig. Etter bare kort tid vil du også kunne erkjenne disse epostene/meldingene samt ha helt nyfunnet kompetanse på hvordan
@@ -126,46 +134,49 @@ th {
 
   <!-- Tema 2 -->
   <div class="w3-container" id="tema2" style="margin-top:30px">
-    <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvilke ulike trusler finnes det?</b></h1>
-    <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
-    <h2>Phishing/Spear-phising</h2>
+    <div class="w3-half w3-center-block">
+      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvilke ulike trusler finnes det?</b></h1>
+      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+      <h2>Phishing/Spear-phising</h2>
+    </div>
 
-    <div class="w3-half">
-    <p>Phising er en type digital svindel der en ondsinned aktør vil prøve å lure deg som forbruker til å gi fra deg sensistiv informasjon. Dette kan være passord, kredittnummer eller andre personopplysninger. Svindlere vil utgi seg som noe de ikke er. Dette kan være banken din, posten, skatteeteaten og mange flere.
-       Vi vil vise noen eksempler på hvordan slike svindel forsøk kan se ut slik at du kan gjenkjenne dem i fremtiden.</p>
-    <h4>Epost og SMS eksempel</h4>
-    <p>Epost og SMS er hvor svindelere som oftest vil prøve seg på et angrep. Her er noen eskempler for å gjøre deg mer kjent med noen av svindleres mest brukte metoder.</p>
+    <div class="w3-half w3-center-block">
+      <p>Phising er en type digital svindel der en ondsinned aktør vil prøve å lure deg som forbruker til å gi fra deg sensistiv informasjon. Dette kan være passord, kredittnummer eller andre personopplysninger. Svindlere vil utgi seg som noe de ikke er. Dette kan være banken din, posten, skatteeteaten og mange flere.
+        Vi vil vise noen eksempler på hvordan slike svindel forsøk kan se ut slik at du kan gjenkjenne dem i fremtiden.</p>
+      <h4>Epost og SMS eksempel</h4>
+      <p>Epost og SMS er hvor svindelere som oftest vil prøve seg på et angrep. Her er noen eskempler for å gjøre deg mer kjent med noen av svindleres mest brukte metoder.</p>
     </div>
   
-    <div class="w3-row">
-      <div class="w3-third w3-container" style="padding-right:20px">
+    <div class="w3-half w3-center-block">
+      <div class="w3-half w3-container" style="padding-right:20px">
         <img src="img/gjensidige2.png" alt ="svindel epost" style="height:500px" class="w3-margin-bottom"> 
         <p><b>Figur 1:</b> Dette er et eksempel på en falsk e-post som prøver å lure deg.</p>
       </div>
  
-      <div class="w3-third w3-container">
+      <div class="w3-half w3-container">
         <img src="img/posten.png" alt ="svindel sms" style="height:500px" class="w3-margin-bottom">
         <p><b>Figur 2:</b> Dette er et eksempel på en falsk SMS (smishing) fra Posten.</p>
       </div>
     </div>
-
-    <div class="w3-half">
-    <h4><b>Falske nettsider</b></h4>
-    <p>Noe som er spesielt viktig å merke seg i mail, sms og chat-meldinger er lenker som blir sendt. Uansett 
-      om det kommer fra familie, venner eller en kollega, må man forsikre seg om at lenken som sendes faktisk 
-      leder dit det ser ut som.</p>
-    <p>Dette er spesielt viktig for nettsider der man deler sensitiv informasjon, f.eks. til banken. Kontroller 
-      alltid at hele lenken er riktig, at det ikke er noen bokstaver der de ikke burde være, eller at de er 
-      byttet ut med noen som likner. </p>
-    <p>Se eksempel:</p>
-    <img src="img/typosquatting.png" alt="typosquatting" style="height:400px" class="w3-margin-bottom">
-    <p>Hvis man er i tvil er det bedre å navigere til nettsiden selv. Som oftest vil det første resultatet for 
-      kjente nettsider være riktig, men ikke alltid, så vær oppmerksom!</p>
+    <div class="w3-half w3-center-block">
+      <p style="color:white">fix<br> </p>
+      <h4><b>Falske nettsider</b></h4>
+      <p>Noe som er spesielt viktig å merke seg i mail, sms og chat-meldinger er lenker som blir sendt. Uansett 
+        om det kommer fra familie, venner eller en kollega, må man forsikre seg om at lenken som sendes faktisk 
+        leder dit det ser ut som.</p>
+      <p>Dette er spesielt viktig for nettsider der man deler sensitiv informasjon, f.eks. til banken. Kontroller 
+        alltid at hele lenken er riktig, at det ikke er noen bokstaver der de ikke burde være, eller at de er 
+        byttet ut med noen som likner. </p>
+      <p>Se eksempel:</p>
+      <img src="img/typosquatting.png" alt="typosquatting" style="height:400px" class="w3-margin-bottom">
+      <p>Hvis man er i tvil er det bedre å navigere til nettsiden selv. Som oftest vil det første resultatet for 
+        kjente nettsider være riktig, men ikke alltid, så vær oppmerksom!</p>
     </div>
 
-
     <!-- UKJENTE USB ENHETER -->
-     <div class="w3-row"> 
+     <!-- må ha denne her for at det skal funke ...-->
+    <div class="w3-row"></div>
+    <div class="w3-half w3-center-block"> 
       <h4><b>Ukjente minnepinner/USB enheter</b></h4>
 
       <p>
@@ -174,10 +185,10 @@ th {
         Finner du en slik USB port, eller minnepinne som du ikke har sett før, gå til IT-ansvarlig med en gang!
       </p>
       <img src="img/dont_touch_usb.png" alt="usb" width="500" height="300" class="w3-margin-bottom">
-     </div>
-    
+    </div>
     
   </div>
+
   <!-- Tema 3 -->
   <div class="w3-container" id="tema3" style="margin-top:75px">
     <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre trusler?</b></h1>
