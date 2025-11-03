@@ -64,23 +64,21 @@ body {font-size:16px;}
   }
 }
 
-
-
-
 /* table */
 table {
-  table-layout: fixed;
+  font-family: "poppins", sans-serif;
+  border-collapse: collapse;
   width: 100%;
-  overflow-wrap: normal;
-  border-spacing: 15px;
 }
-th {
-  padding: 10px;
+td, th {
+  border: 1px solid #dddddd;
   text-align: left;
-  vertical-align: top;
-  color: black;
-  font-weight: normal;
+  padding: 8px;
 }
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 #mySidebar {
   background-color: #607d8b;
  background-image: linear-gradient(to bottom, #607d8b 0%, #9b9b9b 100%);
@@ -154,28 +152,23 @@ th {
       </div>
     </div>
 
-    <div class="w3-half w3-center-block">
-      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvorfor alle burde kunne cybersikkerhet!</b></h1>
-      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
-    </div>
-  
-  </div>
-  <!-- First grid -->
-
-
-  <div class="w3-row-pading">
-    <div class="w3-container" style="margin-top:30px">
-      <div class="w3-half w3-center-block">
-        <p>Det blir stadig viktigere å kunne grunnleggende cybersikkerhet i dagens samfunn. Økende digitalisering og bruk av teknologi i hverdag og på arbeidsplasser gjør oss mer sårbare for digitale trusler enn noen gang før. Dermed er det essensielt at vi 
-        legger unna alderdomsmyter om at datasikkerhet kun er for de yngre og IT-ekseperter. Vi har derfor laget en opplæringsressurs for de av dere i offentlig sektor hvor det er desto viktigere å ha gode vaner innen nettbruk og den er spesielt laget for de med nesten ingen opplæring fra før.</p>
-        <p>Digitale angrep og trusler VIL ramme alle som leser dette uansett den tekniske kompetansen. Ifølge ny statistikk blir det sendt ut 3.4 milliarder skadelige eposter daglig. Etter bare kort tid vil du også kunne erkjenne disse epostene/meldingene samt ha helt nyfunnet kompetanse på hvordan
-        du kan holde din og andres informasjon trygg.</p>
-        <p>Vi vil under gå gjennom viktige temaer, hvor vi først tar for oss noen av de vanligste digitale trusler i Norge.</p>
-        
+    <div class="grid-container">
+      <div>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvorfor alle burde kunne cybersikkerhet!</b></h1>
+        <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
       </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div style="margin-top:-40px">
+      <p>Det blir stadig viktigere å kunne grunnleggende cybersikkerhet i dagens samfunn. Økende digitalisering og bruk av teknologi i hverdag og på arbeidsplasser gjør oss mer sårbare for digitale trusler enn noen gang før. Dermed er det essensielt at vi 
+      legger unna alderdomsmyter om at datasikkerhet kun er for de yngre og IT-ekseperter. Vi har derfor laget en opplæringsressurs for de av dere i offentlig sektor hvor det er desto viktigere å ha gode vaner innen nettbruk og den er spesielt laget for de med nesten ingen opplæring fra før.</p>
+      <p>Digitale angrep og trusler VIL ramme alle som leser dette uansett den tekniske kompetansen. Ifølge ny statistikk blir det sendt ut 3.4 milliarder skadelige eposter daglig. Etter bare kort tid vil du også kunne erkjenne disse epostene/meldingene samt ha helt nyfunnet kompetanse på hvordan
+      du kan holde din og andres informasjon trygg.</p>
+      <p>Vi vil under gå gjennom viktige temaer, hvor vi først tar for oss noen av de vanligste digitale trusler i Norge.</p>
     </div>  
   </div>
-
 
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
@@ -188,17 +181,20 @@ th {
 
   <!-- Tema 2 -->
   <div class="w3-container" id="tema2" style="margin-top:30px">
-    <div class="w3-half w3-center-block">
-      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvilke ulike trusler finnes det?</b></h1>
-      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
-      <h3><b>Phishing/Spear-phishing</b></h3>
+    <div class="grid-container">
+      <div>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvilke ulike trusler finnes det?</b></h1>
+        <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+      </div>
     </div>
 
-    <div class="w3-half w3-center-block">
-      <p>Phishing er en type digital svindel der en ondsinned aktør vil prøve å lure deg som forbruker til å gi fra deg sensistiv informasjon. Dette kan være passord, kredittnummer eller andre personopplysninger. Svindlere vil utgi seg som noe de ikke er. Dette kan være banken din, posten, skatteeteaten og mange flere.
-        Vi vil vise noen eksempler på hvordan slike svindel forsøk kan se ut slik at du kan gjenkjenne dem i fremtiden.</p>
-          </div>
-
+    <div class="grid-container">
+      <h3><b>Phishing/Spear-phishing</b></h3>
+      <div style="margin-top: -30px;">
+        <p>Phishing er en type digital svindel der en ondsinned aktør vil prøve å lure deg som forbruker til å gi fra deg sensistiv informasjon. Dette kan være passord, kredittnummer eller andre personopplysninger. Svindlere vil utgi seg som noe de ikke er. Dette kan være banken din, posten, skatteeteaten og mange flere.
+          Vi vil vise noen eksempler på hvordan slike svindel forsøk kan se ut slik at du kan gjenkjenne dem i fremtiden.</p>
+      </div>
+    </div>
 
     <!-- Testing -->
     <div class="grid-container">
@@ -219,109 +215,82 @@ th {
         </div>
       </article>
     </div>
-    <!--
-    <div class="w3-half w3-center-block">
-      <div class="w3-half w3-container" style="padding-right:20px">
-        <img src="img/gjensidige2.png" alt ="svindel epost" style="height:500px" class="w3-margin-bottom"> 
-        <p><b>Figur 1:</b> Dette er et eksempel på en falsk e-post som prøver å lure deg.</p>
-      </div>
- 
-      <div class="w3-half w3-container">
-        <img src="img/posten.png" alt ="svindel sms" style="height:500px" class="w3-margin-bottom">
-        <p><b>Figur 2:</b> Dette er et eksempel på en falsk SMS (smishing) fra Posten.</p>
-      </div>
-    </div>
-    -->
-
-    <div class="w3-half w3-center-block">
-      <p style="color:white">fix<br> </p>
-      <h3><b>Falske nettsider</b></h3>
-      <p>Noe som er spesielt viktig å merke seg i mail, sms og chat-meldinger er lenker som blir sendt. Uansett 
-        om det kommer fra familie, venner eller en kollega, må man forsikre seg om at lenken som sendes faktisk 
-        leder dit det ser ut som.</p>
-      <p>Dette er spesielt viktig for nettsider der man deler sensitiv informasjon, f.eks. til banken. Kontroller 
-        alltid at hele lenken er riktig, at det ikke er noen bokstaver der de ikke burde være, eller at de er 
-        byttet ut med noen som likner. </p>
-      <p>Se eksempel:</p>
-      <img src="img/typosquatting.png" alt="typosquatting" style="height:400px" class="w3-margin-bottom">
-      <p>Hvis man er i tvil er det bedre å navigere til nettsiden selv. Som oftest vil det første resultatet for 
-        kjente nettsider være riktig, men ikke alltid, så vær oppmerksom!</p>
 
     <div class="grid-container">
-      <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
+      <div>
+        <p style="color:white">fix<br> </p>
+        <h3><b>Falske nettsider</b></h3>
+        <p>Noe som er spesielt viktig å merke seg i mail, sms og chat-meldinger er lenker som blir sendt. Uansett 
+          om det kommer fra familie, venner eller en kollega, må man forsikre seg om at lenken som sendes faktisk 
+          leder dit det ser ut som.</p>
+        <p>Dette er spesielt viktig for nettsider der man deler sensitiv informasjon, f.eks. til banken. Kontroller 
+          alltid at hele lenken er riktig, at det ikke er noen bokstaver der de ikke burde være, eller at de er 
+          byttet ut med noen som likner. </p>
 
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-      </style>
-      <article class="box">
-        <table>
-          <tr>
-            <th><b>Falsk lenke</b></th>
-            <th><b>Forskjell fra riktig</b></th>
-          </tr>
-          <tr>
-            <td><a href="farliglenke.html">https://goggle.com</a></td>
-            <td> Denne lenken har én <b>o</b> for lite, og én <b>g</b> for mye.</td>
-          </tr>
-          <tr>
-            <td><a href="farliglenke.html">https://gogle.com</a></td>
-            <td> Denne lenken har én <b>o</b> for lite, og én <b>g</b> for mye.</td>
-          </tr>
-          <tr>
-            <td><a href="farliglenke.html">https://g00gle.com</a></td>
-          </tr>
-          <tr>
-            <td><a href="farliglenke.html">https://gooogle.com</a></td>
-          </tr>
-
-        </table> 
-      </article>
-    </div>
-
-
-
-
+        <article class="box">
+          <h3>Eksempler på falske lenker</h3>
+          <div class="box-body">
+            <table>
+              <tr>
+                <th><b>Falsk lenke</b></th>
+                <th><b>Forskjell fra korrekt lenke</b></th>
+              </tr>
+              <tr>
+                <td><a href="farliglenke.html">https://goggle.com</a></td>
+                <td> Denne lenken har én <b>o</b> for lite, og én <b>g</b> for mye.</td>
+              </tr>
+              <tr>
+                <td><a href="farliglenke.html">https://gogle.com</a></td>
+                <td> Denne lenken har én <b>o</b> for lite.</td>
+              </tr>
+              <tr>
+                <td><a href="farliglenke.html">https://g00gle.com</a></td>
+                <td> Denne lenken har byttet ut <b>o</b> med <b>0</b>.</td>
+              </tr>
+              <tr>
+                <td><a href="farliglenke.html">https://gooogle.com</a></td>
+                <td> Denne lenken har en ekstra <b>o</b>.</td>
+              </tr>
+            </table> 
+          </div>
+        </article>
+        <p>Hvis man er i tvil er det bedre å navigere til nettsiden selv. Som oftest vil det første resultatet for 
+          kjente nettsider være riktig, men ikke alltid, så vær oppmerksom!</p>
+      </div>
     </div>
 
     <!-- UKJENTE USB ENHETER -->
-    <div class="w3-half w3-center-block"> 
-      <h3><b><br>Ukjente minnepinner/USB enheter</b></h3>
-      <p>
-        Hvis du finner en ukjent enhet og kobler den til datamaskinen din, kan en angriper få tilgang til alt du 
-        har, eller til og med slette alt du har gjort. Finner du en slik USB port, eller minnepinne som du ikke 
-        har sett før, gå til IT-ansvarlig med en gang!
-      </p>
-      <img src="img/usb.jpg" alt="usb" width="500" height="300" class="w3-margin-bottom">
+    <div class="grid-container">
+      <div> 
+        <h3><b><br>Ukjente minnepinner/USB enheter</b></h3>
+        <p>
+          Hvis du finner en ukjent enhet og kobler den til datamaskinen din, kan en angriper få tilgang til alt du 
+          har, eller til og med slette alt du har gjort. Finner du en slik USB port, eller minnepinne som du ikke 
+          har sett før, gå til IT-ansvarlig med en gang!
+        </p>
+        <img src="img/usb.jpg" alt="usb" style="width:1000px; overflow: hidden; max-height:250px; object-fit: cover;" class="w3-margin-bottom">
+      </div>
     </div>
-    
   </div>
 
   <!-- Tema 3 -->
-  <div class="w3-container" id="tema3" style="margin-top:75px">
-    <div class="w3-half w3-center-block">
-      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre trusler?</b></h1>
-      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+  <div class="w3-container" id="tema3" style="margin-top:30px">
+    <div class="grid-container">
+      <div>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre trusler?</b></h1>
+        <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+      </div>
     </div>
 
-    <div class="w3-half w3-center-block">
-      <h3><b>Gode passordvaner</b></h3>
-        <div class="box-body">
-          <p>Et av de aller viktigste tiltakene vi kan gjøre for å forhindre at våre egne kontoer ender i gale hender, 
-          er å ha gode passordvaner. Vi har samlet de tre viktigste prinsippene i et passord under. Så lenge man
-          følger disse, minsker man sjansen for at passordet ditt kan brytes av en hacker/angriper.</p>
-        </div>
+    <div class="grid-container">
+      <div>
+        <h3><b>Gode passordvaner</b></h3>
+          <div class="box-body">
+            <p>Et av de aller viktigste tiltakene vi kan gjøre for å forhindre at våre egne kontoer ender i gale hender, 
+            er å ha gode passordvaner. Vi har samlet de tre viktigste prinsippene i et passord under. Så lenge man
+            følger disse, minsker man sjansen for at passordet ditt kan brytes av en hacker/angriper.</p>
+          </div>
+      </div>
     </div>
 
     <div class="grid-container">
@@ -419,60 +388,66 @@ th {
     <!-- ^avslutter boksene over-->
 
     <!-- TILTAK / OPPSUMMERING MOT TRUSLER -->
-    <div class="w3-half w3-center-block">
-      <p><br></p>
-      <h3><b>Tiltak du kan ta for å holde arbeidsplassen sikker</b></h3>
-      <p><i>MIDLERTIDIG: dette er en oppsummering av alle tiltakene over
-      Endre ettersom vi oppdaterer nettsiden, flytt ting om det ikke passer,
-      og fjern hvis noe ikke er så relevant </i></p>
-        <h3>Praktiske tiltak</h3>
-          <ul>
-            <li>Lås alltid digitale enheter når du ikke er tilstede!</li>
-            <li>Isoler og ikke koble ukjente USB-enheter — bruk kun godkjente enheter.</li>
-            <li>Etabler klare rutiner for å rapportere og håndtere sikkerhetshendelser.</li>
-          </ul>
-        <h3>OS/programvare</h3>
-          <ul>
-            <li>Bruk VPN ved tilkobling til åpne eller ukjente nettverk.</li>
-            <li>Hold operativsystem og programvare oppdatert — installer sikkerhetsoppdateringer raskt.</li>
-            <li>Installer og oppdater antivirus.</li>
-          </ul>
-        <h3>Passord/etc</h3>
-          <ul>
-            <li>Bruk sterke, unike passord eller passfraser og en passordmanager.</li>
-            <li>Aktiver tofaktorautentisering på alle kontoer som støtter det.</li>
-            <li>Ta regelmessige sikkerhetskopier og test gjenoppretting.</li>        
-          </ul>
-      </p>
+    <div class="grid-container">
+      <div>
+        <p><br></p>
+        <h3><b>Tiltak du kan ta for å holde arbeidsplassen sikker</b></h3>
+        <p><i>MIDLERTIDIG: dette er en oppsummering av alle tiltakene over
+        Endre ettersom vi oppdaterer nettsiden, flytt ting om det ikke passer,
+        og fjern hvis noe ikke er så relevant </i></p>
+          <h3>Praktiske tiltak</h3>
+            <ul>
+              <li>Lås alltid digitale enheter når du ikke er tilstede!</li>
+              <li>Isoler og ikke koble ukjente USB-enheter — bruk kun godkjente enheter.</li>
+              <li>Etabler klare rutiner for å rapportere og håndtere sikkerhetshendelser.</li>
+            </ul>
+          <h3>OS/programvare</h3>
+            <ul>
+              <li>Bruk VPN ved tilkobling til åpne eller ukjente nettverk.</li>
+              <li>Hold operativsystem og programvare oppdatert — installer sikkerhetsoppdateringer raskt.</li>
+              <li>Installer og oppdater antivirus.</li>
+            </ul>
+          <h3>Passord/etc</h3>
+            <ul>
+              <li>Bruk sterke, unike passord eller passfraser og en passordmanager.</li>
+              <li>Aktiver tofaktorautentisering på alle kontoer som støtter det.</li>
+              <li>Ta regelmessige sikkerhetskopier og test gjenoppretting.</li>        
+            </ul>
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- Tema 3 -->
   <div class="w3-container" id="gruppe" style="margin-top:75px">
-    <div class="w3-half w3-center-block">
-      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Printbare posters for kontoret</b></h1>
-      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+    <div class="grid-container">
+      <div>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Printbare posters for kontoret</b></h1>
+        <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+      </div>
     </div>
  
-    <div class="w3-half w3-center-block">
-      <div class="w3-container">
-        <img src="img/Førsteposter.png" alt ="cybersikkerhet poster" style="width:50%" class="w3-margin-bottom">
-        <p><b>Poster 1:(kan endre til printbar senere hvis den ikke funker)</b></p> 
-        <a href="img/Førsteposter.png" download="CybersikkerhetPoster" class="download-button"> 🖨️ Last ned/print her!</a>
-        <style>
-          .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #607d8b;
-            text-decoration: none;
-            border-radius: 5px;
-          }
-          .download-button:hover {
-            background-color: #455a64;
-          }
-        </style>
+    <div class="grid-container">
+      <div>
+        <div class="w3-container">
+          <img src="img/Førsteposter.png" alt ="cybersikkerhet poster" style="width:50%" class="w3-margin-bottom">
+          <p><b>Poster 1:(kan endre til printbar senere hvis den ikke funker)</b></p> 
+          <a href="img/Førsteposter.png" download="CybersikkerhetPoster" class="download-button"> 🖨️ Last ned/print her!</a>
+          <style>
+            .download-button {
+              display: inline-block;
+              padding: 10px 20px;
+              font-size: 16px;
+              color: white;
+              background-color: #607d8b;
+              text-decoration: none;
+              border-radius: 5px;
+            }
+            .download-button:hover {
+              background-color: #455a64;
+            }
+          </style>
+        </div>
       </div>
     </div>
   </div> 
