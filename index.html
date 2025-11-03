@@ -93,7 +93,9 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<!-- Sidebar/menu -->
+<!-- ------------------------------- -->
+<!--   SIDEBAR / MENU                -->
+<!-- ------------------------------- -->
 <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
@@ -164,7 +166,7 @@ tr:nth-child(even) {
     <div style="margin-top:-40px">
       <p>Det blir stadig viktigere å kunne grunnleggende cybersikkerhet i dagens samfunn. Økende digitalisering og bruk av teknologi i hverdag og på arbeidsplasser gjør oss mer sårbare for digitale trusler enn noen gang før. Dermed er det essensielt at vi 
       legger unna alderdomsmyter om at datasikkerhet kun er for de yngre og IT-ekseperter. Vi har derfor laget en opplæringsressurs for de av dere i offentlig sektor hvor det er desto viktigere å ha gode vaner innen nettbruk og den er spesielt laget for de med nesten ingen opplæring fra før.</p>
-      <p>Digitale angrep og trusler VIL ramme alle som leser dette uansett den tekniske kompetansen. Ifølge ny statistikk blir det sendt ut 3.4 milliarder skadelige eposter daglig. Etter bare kort tid vil du også kunne erkjenne disse epostene/meldingene samt ha helt nyfunnet kompetanse på hvordan
+      <p>Digitale angrep og trusler VIL ramme alle som leser dette uansett den tekniske kompetansen. Ifølge ny statistikk blir det sendt ut 3.4 milliarder skadelige eposter daglig. Etter bare kort tid vil du også kunne gjenkjenne disse epostene/meldingene samt ha helt nyfunnet kompetanse på hvordan
       du kan holde din og andres informasjon trygg.</p>
       <p>Vi vil under gå gjennom viktige temaer, hvor vi først tar for oss noen av de vanligste digitale trusler i Norge.</p>
     </div>  
@@ -179,15 +181,59 @@ tr:nth-child(even) {
     </div>
   </div>
 
-  <!-- Tema 2 -->
+  <!-- ------------------------------- -->
+  <!--   FORSKJELLIGE TYPER TRUSLER    -->
+  <!-- ------------------------------- -->
   <div class="w3-container" id="tema2" style="margin-top:30px">
     <div class="grid-container">
       <div>
-        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvilke ulike trusler finnes det?</b></h1>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Ulike trusler innen informasjonssikkerhet</b></h1>
         <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
       </div>
     </div>
 
+    <div class="grid-container">
+      <div style="margin-top: -30px;">
+        <p>Når vi ønsker å opprettholde informasjonssikkerhet er det smart å ha en anelse om hva vi ønsker 
+          å sikre slik at vi enklere kan identifisere hvor mulige sårbarheter ligger ligger. En modell som 
+          ofte brukes er CIA-triangelet som står for Konfidensialitet, integritet og tilgjengelighet. Dette 
+          brukes som en retningslinje både for å beskytte viktig data og sikre at kritiske systemer i en 
+          infrastruktur er driftsikre.</p>
+        
+        <p>For oss er de mest interessante prinsippene <i>konfidensialitet</i> og <i>integritet</i>. 
+          <br>Med <i>konfidensialitet</i> mener vi at informasjonen vi behandler kun skal være tilgjengelig 
+          for autoriserte personer. Enhver organisasjon som behandler sensitiv data bør benytte 
+          adgangskontroll for fysisk sikring, men den digitale parten er vel så viktig. Hvis for eksempel 
+          passordet til en ansatt blir kjent av en angriper slik at de får tilgang til systemene, er dette 
+          et stort sikkerhetsbrudd. Derfor er det viktig å eksempelvis aldri bruke svake passord, eller å 
+          behandle sensitiv data på åpne nettverk uten kryptering.
+          Insidertrusler er også et viktig poeng her, men dette vil være mer relevant på organisasjonsnivå.</p>
+
+        <p>Med <i>integritet</i> mener vi at data ikke blir manipulert på en måte som svekker systemers sikkerhet, 
+          eller endrer dataen selv. Dette innebærer mye, blant annet såkalt malware eller skadevare - 
+          programmer som er laget for å skade eller få uautorisert tilgang til datasystemer. Selv om det ikke 
+          er veldig sannsynlig, kan slike programmer ende opp på datamaskinen din hvis du ikke er forsiktig 
+          med hva du gjør. </p>
+        <p>Under skal vi forklare kort om noen forskjellige typer angrep og hva man bør være oppmerksom på.</p>
+      </div>
+    </div>
+    <!-- MENNESKELIGE SÅRBARHETER -->
+    <div class="grid-container">
+      <h3><b>Menneskelige sårbarheter</b></h3>
+      <div style="margin-top: -30px;">
+        <p>Ettersom datamaskiner og systemer blir sikrere og flere sikkerhetshull tettes, forsøker angripere i større 
+          grad å finne andre måter å tilegne seg uautorisert tilgang til systemer. Ofte vil det være enklere for en 
+          angriper å utnytte menneskelige sårbarheter enn fysiske eller tekniske. De aller fleste angrepene som lykkes 
+          starter med en menneskelig feil. Dette kan være at man trykket på en lenke man ikke burde, at man lastet ned 
+          et program fra en ukjent kilde, at man brukte et svakt passord, eller ble lurt til å oppgi informasjon. 
+          Mennesker kan lures eller manipuleres og det er derfor viktig å være klar over hvilke sårbarheter som finnes 
+          i de forskjellige oppgavene vi gjør til daglig, som å svare på mail eller telefon.<br></p>
+        <p>Mange av truslene vi diskuterer nedenfor baserer seg helt eller delvis på nettopp menneskelige sårbarheter.</p>
+
+      </div>
+    </div>
+
+    <!-- PHISHING -->
     <div class="grid-container">
       <h3><b>Phishing/Spear-phishing</b></h3>
       <div style="margin-top: -30px;">
@@ -196,26 +242,30 @@ tr:nth-child(even) {
       </div>
     </div>
 
-    <!-- Testing -->
     <div class="grid-container">
       <article class="box">
         <h3>Epost og SMS eksempel</h3>
-        <p>Epost og SMS er hvor svindelere som oftest vil prøve seg på et angrep. Her er noen eskempler for å gjøre deg mer kjent med noen av svindleres mest brukte metoder.</p>
+        <p>Epost og SMS er hvor svindelere som oftest vil prøve seg på et angrep. Her er noen eskempler for å gjøre deg mer 
+          kjent med noen av svindleres mest brukte metoder.</p>
+        <p>Legg merke til mailen som avsender bruker i <b>Figur 1</b>, og lenken i meldingen i <b>Figur 2</b>.</p>
 
         <div class="">
           <div class="w3-half w3-container" style="padding-right:20px">
             <img src="img/gjensidige2.png" alt ="svindel epost" style="height:500px" class="w3-margin-bottom"> 
-            <p><b>Figur 1:</b> Dette er et eksempel på en falsk e-post som prøver å lure deg.</p>
+            <p><b>Figur 1:</b> Dette er et eksempel på en falsk e-post som prøver å lure deg til å oppgi login-informasjonen 
+              din. Den blå knappen vil antakelig føre til en falsk login-side som lagrer passordet du skriver inn.</p>
           </div>
  
           <div class="w3-half w3-container">
             <img src="img/posten.png" alt ="svindel sms" style="height:500px" class="w3-margin-bottom">
-            <p><b>Figur 2:</b> Dette er et eksempel på en falsk SMS (smishing) fra Posten.</p>
+            <p><b>Figur 2:</b> Dette er et eksempel på en falsk SMS (smishing) fra noen som utgir seg for å være PostNord.
+            Her brukes en lenke som ender i <i>".top/no"</i>, og ikke <i>".no"</i>.</p>
           </div>
         </div>
       </article>
     </div>
 
+    <!-- FALSKE NETTSIDER -->
     <div class="grid-container">
       <div>
         <p style="color:white">fix<br> </p>
@@ -264,21 +314,31 @@ tr:nth-child(even) {
       <div> 
         <h3><b><br>Ukjente minnepinner/USB enheter</b></h3>
         <p>
-          Hvis du finner en ukjent enhet og kobler den til datamaskinen din, kan en angriper få tilgang til alt du 
-          har, eller til og med slette alt du har gjort. Finner du en slik USB port, eller minnepinne som du ikke 
+          Det er viktig å aldri benytte seg av ukjente minnepinner man finner liggende, eller kanskje til å med får 
+          tilsendt. Hvis en angriper har lagt skadevare på minnepennen og du kobler den til datamaskinen kan angriperen 
+          få tilgang til sensitiv data du har på maskinen, og potensielt ta seg videre inn i it-systemene til 
+          organisasjonen/arbeidsstedet ditt. Typiske programmer som kan ligge på en slik minnepenn er såkalte <i>keyloggers</i> 
+          eller <i>tastaturloggere</i>. Dette er et program som logger alt du skriver på tastaturet ditt, blant annet kan dette 
+          være passord eller annen sensitiv informasjon.<br>
+          Finner du en slik USB port, eller minnepinne som du ikke 
           har sett før, gå til IT-ansvarlig med en gang!
         </p>
-        <img src="img/usb.jpg" alt="usb" style="width:1000px; overflow: hidden; max-height:250px; object-fit: cover;" class="w3-margin-bottom">
+        <img src="img/usb.jpg" alt="usb" style="width:100%; overflow: hidden; max-height:250px; object-fit: cover;" class="w3-margin-bottom">
       </div>
     </div>
   </div>
 
-  <!-- Tema 3 -->
+
+  <!-- ------------------------------- -->
+  <!--   Forhindre trusler             -->
+  <!-- ------------------------------- -->
   <div class="w3-container" id="tema3" style="margin-top:30px">
     <div class="grid-container">
       <div>
-        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre trusler?</b></h1>
+        <h1 class="w3-xxlarge w3-text-blue-grey"><b>Hvordan forhindre potensielle trusler?</b></h1>
         <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+        <p>Nå som vi har folklart kort om noen vanlige trusler, ønsker vi å gå gjennom noen viktige
+        virkemidler som kan forhindre at slike trusler blir utnyttet.</p>
       </div>
     </div>
 
@@ -293,6 +353,7 @@ tr:nth-child(even) {
       </div>
     </div>
 
+    <!-- LANGE PASSORD -->
     <div class="grid-container">
       <article class="box">
         <h3>Lange passord</h3>
@@ -302,6 +363,7 @@ tr:nth-child(even) {
           </div>
       </article>
         
+      <!-- TILFELDIGE PASSORD -->
       <article class="box">
         <h3>Tilfeldige passord</h3>
           <div class="box-body">
@@ -333,6 +395,7 @@ tr:nth-child(even) {
           </div>
       </article>
 
+      <!-- UNIKE PASSORD -->
       <article class="box">
         <h3>Unike passord</h3>
           <div class="box-body">
@@ -345,6 +408,7 @@ tr:nth-child(even) {
           </div>
       </article>
 
+      <!-- PASSORDBEHANDLER -->
       <article class="box">
         <h3>Passordbehandler</h3>
           <div class="box-body">
@@ -366,6 +430,8 @@ tr:nth-child(even) {
 
           </div>
       </article>          
+
+      <!-- TO-FAKTOR-AUTENTISERING -->
       <article class="box">
         <h3>To-faktor-autentisering</h3>
           <div class="box-body">
@@ -386,6 +452,59 @@ tr:nth-child(even) {
         </article>
     </div>
     <!-- ^avslutter boksene over-->
+
+    <!-- OS/PROGRAMVARESIKKERHET-->
+    <div class="grid-container">
+      <div>
+        <h3><b>Operativsystem og programvaresikkerhet</b></h3>
+          <div class="box-body">
+            <p>Innen informasjonssikkerhet er det en evigvarende kamp mellom utviklere av operativsystemer og programvare, og angripere 
+              som forsøker å utnytte sikkerhetshull i disse.</p>
+            <p>For operativsystemer handler om å beskytte mot trusler og uautorisert adgang ved bruk av blant annet sikkerhetspolicy, 
+              autentisering og styring av tilgangsnivå. I tillegg til tiltakene en systemadministrator kan ta, må selve programvaren 
+              være sikker. Programvaren utvikles av operativsystemets utgivere, for Windows er dette Microsoft. De selger windows som 
+              et sikkert operativsystem og jobber hele tiden med å tette sikkerhetshull, både de som er oppdaget og der det er et 
+              potensiale for et sikkerhetshull.</p>
+            <p>På lik linje jobber utviklere av applikasjoner vi benytter med å tette slike sikkerhetshull. Dette gjøres både ved å 
+              blokkere virus eller skadevare direkte, og ved å advare brukeren mot å begå handlinger som utsetter systemet for 
+              potensielle trusler.</p>
+            <p>Det er generelt lite en kan gjøre med slike trusler, siden man ikke ved hvordan programmet fungerer på et lavt nivå. 
+              Derfor er det viktig å alltid oppdatere når den nyeste versjonen blir lansert. Ofte vil nye oppdateringer inneholde 
+              sikkerhetsfikser uansett om det er hovedformålet med oppdateringen eller ikke.</p>
+            <p>Dette gjelder både operativsystemet og alle programmer man benytter - husk å oppdatere!</p>
+          </div>
+      </div>
+    </div>
+
+    <!-- Adskill arbeid og privatliv -->
+    <div class="grid-container">
+      <div>
+        <h3><b>Adskill arbeid og privatliv</b></h3>
+          <div class="box-body">
+            <p>Det er viktig og skille arbeid fra privatlivet, selv om det noen ganger kan virke som en litt fjern situasjon. 
+              Men det er her man som innehaver av sensitiv informasjon kan gå på en blemme.</p>
+            <p>PC-en og mobiltelefonen får stadig flere funksjoner, og de blir mer og mer brukt i hverdagen. På arbeidsplassen 
+              blir disse derfor et viktigere verktøy, som lettere gir tilgang til den informasjonen en trenger. 
+              Det er derfor viktig å kunne ha gode vaner rundt bruk av dem. </p>
+            <p>PC-en og mobiltelefonen man får utdelt fra arbeidsgiver skal helst ikke brukes til noe annet enn arbeidsrelaterte 
+              oppgaver. Dette skyldes at om en skulle laste ned et uskyldig bilde, eller installere en artig applikasjon, så kan 
+              dette medbringe ondsinnet programvare. Dette kan skje rett under nesen på oss, uten at vi legger merke til det. 
+              Sensitiv informasjon du har kan da komme på avveie uten at du eller arbeidsplassen har kontroll. </p>
+            <p>Det samme kan skje med ditt eget private utstyr. Hvis du arbeider for en spesielt utsatt organisasjon, kan du være 
+              et mål for angripere. Åpner du en ukjent fil i en e-post på jobbkontoen, eller klikker på en ukjent lenke, så kan 
+              det føre til at en slik programvare ender opp på ditt private utstyr. Da kan din sensitive informasjon som bank, 
+              telefon, bilder ende i gale hender. </p>
+            <p>En kan ha en enkel regel: Jobbutstyr og arbeidskontoer brukes kun til jobbrelatert arbeid, og privat utstyr og 
+              private kontoer til privat bruk. Og selvfølgelig må man huske at mobiltelefonen kun er en liten datamaskin som på 
+              lik linje som en PC, kan være utsatt for et ondsinnet angrep.</p>
+            <p>Noen arbeidsplasser bruker egne programmer eller applikasjoner som en slags jobb-portal inne på pcen. Dette gjør 
+              at man for eksempel kan arbeide hjemmefra med informasjon som skal beskyttes. Slike løsninger er det it-ansvarlig 
+              som skal sikre at er trygt, men som beskrevet tidligere er det viktig å alltid holde slik programvare oppdatert 
+              for at det skal fungere og være så sikkert som mulig. </p>
+            <p>Likevel, hvis man forsøker å følge denne regelen, kan det bidra til et sikrere nettverk for arbeidsplassen.</p>
+          </div>
+      </div>
+    </div>
 
     <!-- TILTAK / OPPSUMMERING MOT TRUSLER -->
     <div class="grid-container">
@@ -418,7 +537,9 @@ tr:nth-child(even) {
     </div>
   </div>
 
-  <!-- Tema 3 -->
+  <!-- ------------------------------- -->
+  <!--   PRINTBART MATERIELL           -->
+  <!-- ------------------------------- -->
   <div class="w3-container" id="gruppe" style="margin-top:75px">
     <div class="grid-container">
       <div>
@@ -452,35 +573,6 @@ tr:nth-child(even) {
     </div>
   </div> 
 
-  <!-- The Team -->
-  <!--
-  <div>
-    <table>
-      <tr>
-        <th class="w3-light-grey">
-          <h3>Clemens</h3>
-          <p class="w3-opacity">Teknisk Ansvarlig</p>
-          <p>Noe greier om tekniske ting</p>
-        </th>
-        <th class="w3-light-grey">
-          <h3>Albert</h3>
-          <p class="w3-opacity">Prosjektleder</p>
-          <p>Noe greier om prosjektleding</p>
-        </th>
-        <th class="w3-light-grey">
-          <h3>Oskar</h3>
-          <p class="w3-opacity">Fagansvarlig</p>
-          <p>Noe greier om det faglige</p>
-        </th>
-        <th class="w3-light-grey">
-          <h3>Sivert</h3>
-          <p class="w3-opacity">Pedagogisk ansvarlig</p>
-          <p>Noe greier om å tilpasse tema til målgruppe</p>
-        </th>
-      </tr>
-    </table>
-  </div>
-  -->
   <!-- Contact -->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Contact.</b></h1>
@@ -532,6 +624,3 @@ function onClick(element) {
 
 </body>
 </html>
-
-
-
