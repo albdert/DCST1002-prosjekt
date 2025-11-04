@@ -13,6 +13,44 @@ body {font-size:16px;}
 .w3-half img:hover{opacity:1}
 .w3-xxxlarge.w3-text-blue-grey {margin-top: 50px;}
 
+
+
+/* FAQ styles */
+.faq-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+details {
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+summary {
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+details[open] summary {
+  background-color: #e9e9e9;
+}
+
+p {
+  padding: 10px;
+  line-height: 1.5;
+}
+
+
+
+
+
 /* Grid wrapper */
 .grid-container {
   display: grid;
@@ -92,6 +130,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+
 
 <!-- ------------------------------- -->
 <!--   SIDEBAR / MENU                -->
@@ -573,26 +612,56 @@ tr:nth-child(even) {
     </div>
   </div> 
 
+<!-- FAQ-->
+
+<div class="grid-container" style="margin: top 75px">
+  <div class="w3-container">
+  
+  
+  <h1 class="w3-xxlarge w3-text-blue-grey"><b>Ofte stilte spørsmål</b></h1>
+
+  <details>
+    <summary>Hva skal jeg med posters?</summary>
+    <p>De kan henges opp på arbeidsplassen. Spesielt i områder hvor man bruker mye PC!</p>
+  </details>
+
+  <details>
+    <summary>How can I track my order?</summary>
+    <p>You will receive a tracking number via email once your order has shipped.</p>
+  </details>
+
+  <details>
+    <summary>Do you offer international shipping?</summary>
+    <p>Yes, we offer international shipping to select countries. Shipping costs and delivery times vary by destination.</p>
+  </details>
+  </div>
+</div>
+
+
+
   <!-- Contact -->
   <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Contact.</b></h1>
-    <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
-    <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">Send Message</button>
-    </form>  
+    <div class="grid-container">
+    
+      <h1 class="w3-xxlarge w3-text-blue-grey"><b>Spørsmål ikke besvart over, send oss melding!</b></h1>
+      <hr style="width:50px;border:5px solid rgb(0, 0, 0)" class="w3-round">
+      <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">Send Message</button>
+      </form>  
+    </div>
   </div>
 
 <!-- End page content -->
