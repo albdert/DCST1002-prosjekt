@@ -1,196 +1,127 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quiz</title>
-    <style>
-      /* Embedded styles so only quiz.html is changed (keeps quiz.js untouched). */
-      :root{
-        --bg:#071826;
-        --card:#0b1220;
-        --muted:#94a3b8;
-        --accent:#00b4d8;
-        --accent-2:#7b61ff;
-        --glass:rgba(255,255,255,0.03);
-        --success:#16a34a;
-        --danger:#ef4444;
-      }
-      *{box-sizing:border-box}
-      html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Montserrat', Arial;color:#e6eef8;background:linear-gradient(180deg,#03202b,#071826)}
-      main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
-
-      .quiz-card{width:760px;max-width:96%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
-      .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
-      .quiz-title{margin:0;font-size:1.25rem;font-weight:700}
-      .quiz-sub{margin:0;color:var(--muted);font-size:0.95rem}
-
-      .meta{display:flex;gap:1rem;align-items:center;margin-top:12px}
-      .meta .score,.meta .qnum{color:var(--muted);font-weight:600}
-
-      .progress-wrap{height:10px;background:var(--glass);border-radius:999px;margin-top:12px;overflow:hidden}
-      .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .4s ease}
-
-      .question-box{margin-top:16px;background:#071225;border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03);min-height:84px;display:flex;align-items:center}
-      #display-question{margin:0;font-size:1.05rem}
-
-      .options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
-
-    .option{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:10px;background:var(--glass);cursor:pointer;border:1px solid rgba(255,255,255,0.03);font-weight:600;user-select:none;transition:transform .12s,box-shadow .12s,background .18s}
-    .option.selected{background:linear-gradient(90deg,#1e293b,#334155);box-shadow:0 2px 8px rgba(2,6,23,0.18);border-color:var(--accent)}
-    .option.correct{background:linear-gradient(90deg,var(--success),#34d399);border-color:rgba(16,185,129,0.2);box-shadow:0 6px 18px rgba(16,185,129,0.12);color:#fff}
-    .option.wrong{background:linear-gradient(90deg,var(--danger),#fb7185);border-color:rgba(239,68,68,0.15);box-shadow:0 6px 18px rgba(239,68,68,0.12);color:#fff}
-    .option:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(2,6,23,0.45)}
-    input[type=radio]{display:none}
-
-      .actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-      .next-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-      .next-btn:active{transform:translateY(1px)}
-
-      /* modal */
-      .modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.7);align-items:center;justify-content:center}
-      .modal .panel{background:#081225;padding:20px;border-radius:12px;min-width:280px;color:#e6eef8}
-      .grade-details p{margin:6px 0;color:var(--muted)}
-
-      @media (max-width:520px){
-        .options{grid-template-columns:1fr}
-        .quiz-head{flex-direction:column;align-items:flex-start;gap:6px}
-        .actions{flex-direction:column-reverse;gap:10px}
-      }
-    </style>
-  </head>
-  <body onload="NextQuestion(0)">
-        <main>
-            <a href="index.html" class="back-home-btn">← Tilbake til forsiden</a>
-      <section class="quiz-card" aria-labelledby="quiz-title">
-        <div class="quiz-head">
-          <div>
-            <h1 id="quiz-title" class="quiz-title">Rask Quiz</h1>
-            <p class="quiz-sub">10 spørsmål · flervalg · prøv ditt beste</p>
-          </div>
-          <div class="meta">
-            <div class="score">Poeng: <strong id="player-score">0</strong>/10</div>
-            <div class="qnum">Spørsmål: <strong id="question-number">1</strong>/10</div>
-          </div>
-        </div>
-
-    <div class="progress-wrap" aria-hidden="false" aria-label="Fremdrift i quiz">
-          <div id="progress-fill" class="progress-fill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-        </div>
-
-                <div class="question-box">
-                    <h2 id="display-question">Laster spørsmål...</h2>
-                </div>
-
-                <div class="options">
-                    <!-- option modal (warning) -->
-                    <div class="modal" id="option-modal">
-                        <div class="panel modal-content-container">
-                            <h3>Vennligst velg et alternativ</h3>
-                            <div style="text-align:center;margin-top:12px"><button class="next-btn" onclick="closeOptionModal()">OK</button></div>
-                        </div>
-                    </div>
-
-                    <label class="option">
-                        <input type="radio" id="option-one" name="option" value="optionA">
-                        <span id="option-one-label"></span>
-                    </label>
-
-                    <label class="option">
-                        <input type="radio" id="option-two" name="option" value="optionB">
-                        <span id="option-two-label"></span>
-                    </label>
-
-                    <label class="option">
-                        <input type="radio" id="option-three" name="option" value="optionC">
-                        <span id="option-three-label"></span>
-                    </label>
-
-                    <label class="option">
-                        <input type="radio" id="option-four" name="option" value="optionD">
-                        <span id="option-four-label"></span>
-                    </label>
-                </div>
-
-                <div class="actions">
-                    <div><button class="next-btn" onclick="handleNextQuestion()">Neste spørsmål</button></div>
-                </div>
-      </section>
-
-      <!-- score modal -->
-      <div class="modal" id="score-modal">
-        <div class="panel modal-content-container">
-          <h3>Quiz completed</h3>
-          <div class="grade-details">
-            <p>Attempts: 10</p>
-            <p>Wrong Answers: <span id="wrong-answers"></span></p>
-            <p>Right Answers: <span id="right-answers"></span></p>
-            <p>Grade: <span id="grade-percentage"></span>%</p>
-            <p><span id="remarks"></span></p>
-          </div>
-          <div style="text-align:center;margin-top:12px"><button class="next-btn" onclick="closeScoreModal()">Continue</button></div>
-        </div>
-      </div>
-    </main>
-
-    <script src="quiz.js"></script>
-  </body>
-</html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<title>Quiz</title>
 <style>
-*{
+  #mySidebar {
+    background-color: #607d8b;
+    background-image: linear-gradient(to bottom, #607d8b 0%, #9b9b9b 100%);
+    }
+  /* Embedded styles so only quiz.html is changed (keeps quiz.js untouched). */
+  :root{
+    --bg:#071826;
+    --card:#0b1220;
+    --muted:#94a3b8;
+    --accent:#00b4d8;
+    --accent-2:#7b61ff;
+    --glass:rgba(255,255,255,0.03);
+    --success:#16a34a;
+    --danger:#ef4444;
+  }
+  *{box-sizing:border-box}
+
+  html,body{height:100%;margin:0;font-family:"Poppins", sans-serif; color:#e6eef8;}
+  main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+
+  .quiz-card{width:760px;max-width:96%;background-color:#1e293b;border-radius:14px;padding:20px;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .quiz-title{margin:0;font-size:1.25rem;font-weight:700;background-color:#1e293b;}
+  .quiz-sub{margin:0;color:var(--muted);font-size:0.95rem}
+
+  .meta{display:flex;gap:1rem;align-items:center;margin-top:12px}
+  .meta .score,.meta .qnum{color:var(--muted);font-weight:600}
+
+  .progress-wrap{height:10px;background:var(--glass);border-radius:999px;margin-top:12px;overflow:hidden}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .4s ease}
+
+  .question-box{margin-top:16px;background:#071225;border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03);min-height:84px;display:flex;align-items:center}
+  #display-question{margin:0;font-size:1.05rem}
+
+  .options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+
+  .option{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:10px;background:var(--glass);cursor:pointer;border:1px solid rgba(255,255,255,0.03);font-weight:600;user-select:none;transition:transform .12s,box-shadow .12s,background .18s}
+  .option.selected{background:linear-gradient(90deg,#1e293b,#334155);box-shadow:0 2px 8px rgba(2,6,23,0.18);border-color:var(--accent)}
+  .option.correct{background:linear-gradient(90deg,var(--success),#34d399);border-color:rgba(16,185,129,0.2);box-shadow:0 6px 18px rgba(16,185,129,0.12);color:#fff}
+  .option.wrong{background:linear-gradient(90deg,var(--danger),#fb7185);border-color:rgba(239,68,68,0.15);box-shadow:0 6px 18px rgba(239,68,68,0.12);color:#fff}
+  .option:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(2,6,23,0.45)}
+  input[type=radio]{display:none}
+
+  .actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+  .next-btn{background:var(--glass);background-color: #607d8b;border:none;color:white;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+  .next-btn:active{transform:translateY(1px)}
+
+  #main {background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+
+  /* modal */
+  .modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.7);border-radius:14px;border-color:black;align-items:center;justify-content:center}
+  .modal .panel{background:#081225;padding:20px;border-radius:12px;min-width:280px;color:#e6eef8}
+  .grade-details p{margin:6px 0;color:var(--muted)}
+
+  @media (max-width:520px){
+    .options{grid-template-columns:1fr}
+    .quiz-head{flex-direction:column;align-items:flex-start;gap:6px}modal
+    .actions{flex-direction:column-reverse;gap:10px}
+  }
+
+  *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
 
-html, body{
+  html, body{
     height: 100%;
-}
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  }
 
+  body{
+    font-family: "Poppins", sans-serif;
 
-body{
-    font-family: 'Montserrat', serif;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))
+  }
 
-}
-
-main{
+  main{
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #9e9e9e;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     background: url('../assets/background_image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+  }
 
-.game-quiz-container{
+  .game-quiz-container{
     width: 40rem;
     height: 30rem;
-    background-color: #f44336;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border-radius: 30px;
-}
+  }
 
-.game-details-container{
+  .game-details-container{
     width: 80%;
     height: 4rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+  }
 
-.game-details-container h1{
+  .game-details-container h1{
     font-size: 1.2rem;
-}
+  }
 
-.game-question-container{
+  .game-question-container{
     width: 80%;
     height: 8rem;
     display: flex;
@@ -198,31 +129,31 @@ main{
     justify-content: center;
     border: 2px solid darkgray;
     border-radius: 25px;
-}
+  }
 
-.game-question-container h1{
+  .game-question-container h1{
     font-size: 1.1rem;
     text-align: center;
     padding: 3px;
-}
+  }
 
-.game-options-container{
+  .game-options-container{
     width: 80%;
     height: 12rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-}
+  }
 
-.game-options-container span{
+  .game-options-container span{
     width: 45%;
     height: 3rem;
     border: 2px solid darkgray;
     border-radius: 20px;
     overflow: hidden;
-}
-span label{
+  }
+  span label{
     width: 100%;
     height: 100%;
     display: flex;
@@ -232,32 +163,15 @@ span label{
     transition: transform 0.3s;
     font-weight: 600;
     color: rgb(22, 22, 22);
-}
+  }
 
-span label:hover{
-    -ms-transform: scale(1.12);
-    -webkit-transform: scale(1.12);
-    transform: scale(1.12);
-    color: white;
-}
-
-input[type="radio"] {
-    position: relative;
-    display: none;
-}
-
-
-input[type=radio]:checked ~ .option {
-    background: paleturquoise;
-}
-
-.next-button-container{
+  .next-button-container{
     width: 50%;
     height: 3rem;
     display: flex;
     justify-content: center;
-}
-.next-button-container button{
+  }
+  .next-button-container button{
     width: 8rem;
     height: 2rem;
     border-radius: 10px;
@@ -267,12 +181,12 @@ input[type=radio]:checked ~ .option {
     border: 2px solid gray;
     cursor: pointer;
     outline: none;
-}
-.next-button-container button:hover{
+  }
+  .next-button-container button:hover{
     background-color: rgb(143, 93, 93);
-}
+  }
 
-.modal-container{
+  .modal-container{
     display: none;
     position: fixed;
     z-index: 1; 
@@ -288,9 +202,9 @@ input[type=radio]:checked ~ .option {
     justify-content: center; 
     -webkit-animation: fadeIn 1.2s ease-in-out;
     animation: fadeIn 1.2s ease-in-out;
-}
+  }
 
-.modal-content-container{
+  .modal-content-container{
     height: 20rem;
     width: 25rem;
     background-color: rgb(43, 42, 42);
@@ -299,142 +213,219 @@ input[type=radio]:checked ~ .option {
     align-items: center;
     justify-content: space-around;
     border-radius: 25px;
-}
+  }
 
-.modal-content-container h1{
+  .modal-content-container h1{
     font-size: 1.3rem;
     height: 3rem;
     color: lightgray;
     text-align: center;
-}
+  }
 
-.grade-details{
+  .grade-details{
     width: 15rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-}
+  }
 
-.grade-details p{
-    color: white;
-    text-align: center;
-}
+  .grade-details p{
+      color: white;
+      text-align: center;
+  }
 
-.modal-button-container{
-    height: 2rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  .modal-button-container{
+      height: 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 
-.modal-button-container button{
-    width: 10rem;
-    height: 2rem;
-    background: none;
-    outline: none;
-    border: 1px solid rgb(252, 242, 241);
-    color: white;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 20px;
-}
-.modal-button-container button:hover{
-    background-color: rgb(83, 82, 82);
-}
+  .modal-button-container button{
+      width: 10rem;
+      height: 2rem;
+      background: none;
+      outline: none;
+      border: 1px solid rgb(252, 242, 241);
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 20px;
+  }
+  .modal-button-container button:hover{
+      background-color: rgb(83, 82, 82);
+  }
 
-@media(min-width : 300px) and (max-width : 350px){
+  @media(min-width : 300px) and (max-width : 350px){
+      .game-quiz-container{
+          width: 90%;
+          height: 80vh;
+      }
+      .game-details-container h1{
+          font-size: 0.8rem;
+      }
+
+      .game-question-container{
+          height: 6rem;
+      }
+      .game-question-container h1{
+        font-size: 0.9rem;
+      }
+
+      .game-options-container span{
+          width: 90%;
+          height: 2.5rem;
+      }
+      .game-options-container span label{
+          font-size: 0.8rem;
+      }
+      .modal-content-container{
+          width: 90%;
+          height: 25rem;
+      }
+
+      .modal-content-container h1{
+          font-size: 1.2rem;
+      }
+  }
+
+  @media(min-width : 350px) and (max-width : 700px){
     .game-quiz-container{
         width: 90%;
         height: 80vh;
-     }
-     .game-details-container h1{
-        font-size: 0.8rem;
-     }
+      }
+      .game-details-container h1{
+          font-size: 1rem;
+      }
 
-     .game-question-container{
-        height: 6rem;
-     }
-     .game-question-container h1{
-       font-size: 0.9rem;
-    }
+      .game-question-container{
+          height: 8rem;
+      }
 
-    .game-options-container span{
-        width: 90%;
-        height: 2.5rem;
-    }
-    .game-options-container span label{
-        font-size: 0.8rem;
-    }
-    .modal-content-container{
-        width: 90%;
-        height: 25rem;
-    }
+      .game-question-container h1{
+          font-size: 0.9rem;
+      }
 
-    .modal-content-container h1{
-        font-size: 1.2rem;
-    }
-}
-
-@media(min-width : 350px) and (max-width : 700px){
-   .game-quiz-container{
-       width: 90%;
-       height: 80vh;
-    }
-    .game-details-container h1{
-        font-size: 1rem;
-    }
-
-    .game-question-container{
-        height: 8rem;
-    }
-
-    .game-question-container h1{
-        font-size: 0.9rem;
-     }
-
-    .game-options-container span{
-        width: 90%;
-    }
-    .modal-content-container{
-        width: 90%;
-        height: 25rem;
-    }
-    .modal-content-container h1{
-        font-size: 1.2rem;
-    }
-}
-
-
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
+      .game-options-container span{
+          width: 90%;
+      }
+      .modal-content-container{
+          width: 90%;
+          height: 25rem;
+      }
+      .modal-content-container h1{
+          font-size: 1.2rem;
+      }
   }
 
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-    
-        .back-home-btn {
-            position: absolute;
-            top: 32px;
-            left: 32px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(2,6,23,0.18);
-            transition: background .18s, box-shadow .18s;
-            z-index: 10;
-            display: inline-block;
-        }
-        .back-home-btn:hover {
-            background: linear-gradient(90deg, var(--accent-2), var(--accent));
-            box-shadow: 0 6px 18px rgba(2,6,23,0.22);
-        }
+  @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+
+  @-webkit-keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+  }
+  
+  </style>
+  </head>
+  <body onload="NextQuestion(0)">
+    <!-- ------------------------------- -->
+    <!--   SIDEBAR / MENU                -->
+    <!-- ------------------------------- -->
+    <nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+        <div class="w3-container">
+            <h3 class="w3-padding-64" style="font-family: Poppins, sans-serif;"><b>NTNU<br>2025</b></h3>
+        </div>
+        <div class="w3-bar-block">
+            <a href="./index.html#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Hjem</a> 
+            <a href="./index.html#tema1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Hvorfor kunne cybersikkerhet</a> 
+            <a href="./index.html#tema2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Trusler</a> 
+            <a href="./index.html#tema3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Forhindre trusler</a> 
+            <a href="./index.html#gruppe" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Print</a> 
+            <a href="./index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Contact</a>
+            <a href="./quiz.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">-> Quiz</a>
+        </div>
+    </nav>
+
+    <main id="main">
+      <section class="quiz-card" aria-labelledby="quiz-title">
+        <div class="quiz-head">
+          <div>
+            <h1 id="quiz-title" class="quiz-title">Rask Quiz</h1>
+            <p class="quiz-sub">10 spørsmål · flervalg · prøv ditt beste</p>
+          </div>
+          <div class="meta">
+            <div class="score">Poeng: <strong id="player-score">0</strong>/10</div>
+            <div class="qnum">Spørsmål: <strong id="question-number">1</strong>/10</div>
+          </div>
+        </div>
+
+        <div class="progress-wrap" aria-hidden="false" aria-label="Fremdrift i quiz">
+          <div id="progress-fill" class="progress-fill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+        </div>
+
+        <div class="question-box">
+            <h2 id="display-question">Laster spørsmål...</h2>
+        </div>
+
+        <div class="options">
+          <!-- option modal (warning) -->
+          <div class="modal" id="option-modal">
+              <div class="panel modal-content-container">
+                  <h3>Vennligst velg et alternativ</h3>
+                  <div style="text-align:center;margin-top:12px"><button class="next-btn" onclick="closeOptionModal()">OK</button></div>
+              </div>
+          </div>
+
+          <label class="option">
+              <input type="radio" id="option-one" name="option" value="optionA">
+              <span id="option-one-label"></span>
+          </label>
+
+          <label class="option">
+              <input type="radio" id="option-two" name="option" value="optionB">
+              <span id="option-two-label"></span>
+          </label>
+
+          <label class="option">
+              <input type="radio" id="option-three" name="option" value="optionC">
+              <span id="option-three-label"></span>
+          </label>
+
+          <label class="option">
+              <input type="radio" id="option-four" name="option" value="optionD">
+              <span id="option-four-label"></span>
+          </label>
+        </div>
+
+        <div class="actions">
+            <div><button class="next-btn" onclick="handleNextQuestion()">Neste spørsmål</button></div>
+        </div>
+      </section>
+
+      <!-- score modal -->
+      <div class="modal" id="score-modal">
+        <div class="panel modal-content-container">
+          <h3>Quiz completed</h3>
+          <div class="grade-details">
+            <p>Attempts: <span id="number-attempts"></span></p>
+            <p>Wrong Answers: <span id="wrong-answers"></span></p>
+            <p>Right Answers: <span id="right-answers"></span></p>
+            <p>Grade: <span id="grade-percentage"></span>%</p>
+            <p><span id="remarks"></span></p>
+          </div>
+          <div style="text-align:center;margin-top:50px"><button class="next-btn" onclick="closeScoreModal()">Continue</button></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
+<style>

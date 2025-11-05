@@ -243,11 +243,11 @@ function handleQuestions() {
     }
 }
 
-
 let questionNumber = 1 //holds the current question number
 let playerScore = 0  //holds the player score
 let wrongAttempt = 0 //amount of wrong answers picked by player
 let indexNumber = 0 //will be used in displaying next question
+let numAttempts = 1 //antall forsøk denne browser session
 
 // function for displaying next question in the array to dom
 //also handles displaying players and quiz information to dom
@@ -364,15 +364,15 @@ function handleEndGame() {
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
-        remark = "Bare å øve mer!."
+        remark = "Dette gikk ikke så bra, du må øve mer!"
         remarkColor = "red"
     }
     else if (playerScore >= 4 && playerScore < 7) {
-        remark = "Midt på treet. "
+        remark = "Du har noe kontroll, men bør øve litt mer."
         remarkColor = "orange"
     }
     else if (playerScore >= 7) {
-        remark = "Dataen din er veldig trygg!"
+        remark = "Du har god kontroll!"
         remarkColor = "green"
     }
     const playerGrade = (playerScore / 10) * 100
@@ -381,6 +381,7 @@ function handleEndGame() {
     document.getElementById('remarks').innerHTML = remark
     document.getElementById('remarks').style.color = remarkColor
     document.getElementById('grade-percentage').innerHTML = playerGrade
+    document.getElementById('number-attempts').innerHTML = numAttempts
     document.getElementById('wrong-answers').innerHTML = wrongAttempt
     document.getElementById('right-answers').innerHTML = playerScore
     document.getElementById('score-modal').style.display = "flex"
@@ -393,6 +394,7 @@ function closeScoreModal() {
     playerScore = 0
     wrongAttempt = 0
     indexNumber = 0
+    numAttempts += 1
     shuffledQuestions = []
     NextQuestion(indexNumber)
     document.getElementById('score-modal').style.display = "none"
