@@ -244,27 +244,39 @@ tr:nth-child(even) {
 
     <div class="grid-container">
       <div style="margin-top: -30px;">
-        <p class="fs">Når vi ønsker å opprettholde informasjonssikkerhet er det smart å ha en anelse om hva vi ønsker 
-          å sikre slik at vi enklere kan identifisere hvor mulige sårbarheter ligger ligger. En modell som 
-          ofte brukes er CIA-triangelet som står for Konfidensialitet, integritet og tilgjengelighet. Dette 
-          brukes som en retningslinje både for å beskytte viktig data og sikre at kritiske systemer i en 
-          infrastruktur er driftsikre.</p>
-        
-        <p>For oss er de mest interessante prinsippene <i>konfidensialitet</i> og <i>integritet</i>. 
-          <br>Med <i>konfidensialitet</i> mener vi at informasjonen vi behandler kun skal være tilgjengelig 
-          for autoriserte personer. Enhver organisasjon som behandler sensitiv data bør benytte 
-          adgangskontroll for fysisk sikring, men den digitale parten er vel så viktig. Hvis for eksempel 
-          passordet til en ansatt blir kjent av en angriper slik at de får tilgang til systemene, er dette 
-          et stort sikkerhetsbrudd. Derfor er det viktig å eksempelvis aldri bruke svake passord, eller å 
-          behandle sensitiv data på åpne nettverk uten kryptering.
-          Insidertrusler er også et viktig poeng her, men dette vil være mer relevant på organisasjonsnivå.</p>
+        <p>Når vi ønsker å opprettholde informasjonssikkerhet er det smart å ha en anelse om hva vi ønsker å sikre 
+          slik at vi enklere kan identifisere hvor mulige sårbarheter ligger ligger. To viktige prinsipper vi ønsker 
+          å følge er <i>konfidensialitet</i> og <i>integritet</i>. </p>
+        <p>Kort forklart handler disse om å holde informasjonen eller 
+          dataen vi sitter med utilgjengelig for andre enn autoriserte personer, og å tilstrebe at systemene vi 
+          jobber med  eller dataen vi behandler ikke kan manipuleres av angripere.</p>
 
-        <p>Med <i>integritet</i> mener vi at data ikke blir manipulert på en måte som svekker systemers sikkerhet, 
-          eller endrer dataen selv. Dette innebærer mye, blant annet såkalt malware eller skadevare - 
-          programmer som er laget for å skade eller få uautorisert tilgang til datasystemer. Selv om det ikke 
-          er veldig sannsynlig, kan slike programmer ende opp på datamaskinen din hvis du ikke er forsiktig 
-          med hva du gjør. </p>
-        <p>Under skal vi forklare kort om noen forskjellige typer angrep og hva man bør være oppmerksom på.</p>
+        <p>Under kan du lese litt mer om disse konseptene hvis du er interessert, og videre skal vi forklare kort om noen 
+          forskjellige typer angrep og hva man bør være oppmerksom på.</p>
+      </div>
+      <div class="w3-container">
+        <details>
+          <summary>Mer informasjon</summary>
+          <p>En modell som ofte brukes innen informasjonssikkerhet er CIA-triangelet som står for 
+            <i>Konfidensialitet</i>, <i>integritet</i> og <i>tilgjengelighet</i>. Dette brukes som en 
+            retningslinje både for å beskytte viktig data og sikre at kritiske systemer i en 
+            infrastruktur er driftsikre.</p>
+        
+          <p>For oss er de mest interessante prinsippene <i>konfidensialitet</i> og <i>integritet</i>. 
+            <br>Med <i>konfidensialitet</i> mener vi at informasjonen vi behandler kun skal være tilgjengelig 
+            for autoriserte personer. Enhver organisasjon som behandler sensitiv data bør benytte 
+            adgangskontroll for fysisk sikring, men den digitale parten er vel så viktig. Hvis for eksempel 
+            passordet til en ansatt blir kjent av en angriper slik at de får tilgang til systemene, er dette 
+            et stort sikkerhetsbrudd. Derfor er det viktig å eksempelvis aldri bruke svake passord, eller å 
+            behandle sensitiv data på åpne nettverk uten kryptering.
+            Insidertrusler er også et viktig poeng her, men dette vil være mer relevant på organisasjonsnivå.</p>
+
+          <p>Med <i>integritet</i> mener vi at data ikke blir manipulert på en måte som svekker systemers sikkerhet, 
+            eller endrer dataen selv. Dette innebærer mye, blant annet såkalt malware eller skadevare - 
+            programmer som er laget for å skade eller få uautorisert tilgang til datasystemer. Selv om det ikke 
+            er veldig sannsynlig, kan slike programmer ende opp på datamaskinen din hvis du ikke er forsiktig 
+            med hva du gjør. </p>
+        </details>
       </div>
     </div>
     <!-- MENNESKELIGE SÅRBARHETER -->
@@ -494,10 +506,10 @@ tr:nth-child(even) {
           
             <ul>
               <!-- LEGG TIL LENKER HER-->
-              <li>NordPass (Abonnement)</li>
-              <li>RoboForm (Abonnement)</li>
-              <li>Proton Pass (godt gratis-tilbud)</li>
-              <li>Bitwarden (godt gratis-tilbud)</li>
+              <a href="https://proton.me/pass/pricing" target="_blank"><li>Proton Pass (godt gratis-tilbud)</li></a>
+              <a href="https://bitwarden.com/pricing/" target="_blank"><li>Bitwarden (godt gratis-tilbud)</li></a>
+              <a href="https://nordpass.com/free-pricing-card/" target="_blank"><li>NordPass (Abonnement)</li></a>
+              <a href="https://www.roboform.com/pricing-personal" target="_blank"><li>RoboForm (Abonnement)</li></a>
             </ul>
 
           </div>
@@ -515,8 +527,10 @@ tr:nth-child(even) {
               krever at man bruker <b>2FA</b> er det enkleste å bruke appen de anbefaler. Hvis arbeidsplassen ikke har krav til <b>2FA</b>
               kan man for eksempel bruke noen av følgende alternativer:</p>
             <ul>
-              <li>Microsoft Authenticator</li>
-              <li>Google Authenticator</li>
+              <a href="https://proton.me/authenticator" target="_blank"><li>Proton Authenticator</li></a>
+              <a href="https://bitwarden.com/products/authenticator/" target="_blank"><li>Bitwarden Authenticator</li></a>
+              <a href="https://www.microsoft.com/nb-no/security/mobile-authenticator-app" target="_blank"><li>Microsoft Authenticator</li></a>
+              <a href="https://support.google.com/accounts/answer/1066447?hl=en&co=GENIE.Platform%" target="_blank"><li>Google Authenticator</li></a>
             </ul>
             <p>Men det finnes mange andre alternativer og det er generelt liten forskjell mellom de. Det viktigste er å benytte seg av 
               <b>2FA</b>, ikke hvilken app du velger.</p>
