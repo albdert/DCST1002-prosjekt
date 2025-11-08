@@ -2,231 +2,94 @@
  //you can change the questions to your own taste or even add more questions..
 const questions = [
     {
-        question: "How many days makes a week ?",
-        optionA: "10 days",
-        optionB: "14 days",
-        optionC: "5 days",
-        optionD: "7 days",
-        correctOption: "optionD"
+        question: "Hva bør du gjøre med PC-en når du går fra den?",
+        optionA: "La den stå åpen",
+        optionB: "Skru av skjermen",
+        optionC: "Låse den med Windows + L",
+        optionD: "Trekke ut strømledningen",
+        correctOption: "optionC"
     },
 
     {
-        question: "How many players are allowed on a soccer pit ?",
-        optionA: "10 players",
-        optionB: "11 players",
-        optionC: "9 players",
-        optionD: "12 players",
+        question: "Hva er et godt kjennetegn på en falsk e-post?",
+        optionA: "Den har alltid mange bilder",
+        optionB: "Den ber deg trykke på en mistenkelig lenke",
+        optionC: "Den kommer fra en venn",
+        optionD: "Den har kort tekst",
         correctOption: "optionB"
     },
 
     {
-        question: "Who was the first President of USA ?",
-        optionA: "Donald Trump",
-        optionB: "Barack Obama",
-        optionC: "Abraham Lincoln",
-        optionD: "George Washington",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "30 days has ______ ?",
-        optionA: "January",
-        optionB: "December",
-        optionC: "June",
-        optionD: "August",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "How manay hours can be found in a day ?",
-        optionA: "30 hours",
-        optionB: "38 hours",
-        optionC: "48 hours",
-        optionD: "24 hours",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which is the longest river in the world ?",
-        optionA: "River Nile",
-        optionB: "Long River",
-        optionC: "River Niger",
-        optionD: "Lake Chad",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "_____ is the hottest Continent on Earth ?",
-        optionA: "Oceania",
-        optionB: "Antarctica",
-        optionC: "Africa",
-        optionD: "North America",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "Which country is the largest in the world ?",
-        optionA: "Russia",
-        optionB: "Canada",
-        optionC: "Africa",
-        optionD: "Egypt",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Which of these numbers is an odd number ?",
-        optionA: "Ten",
-        optionB: "Twelve",
-        optionC: "Eight",
-        optionD: "Eleven",
-        correctOption: "optionD"
-    },
-
-    {
-        question: `"You Can't see me" is a popular saying by`,
-        optionA: "Eminem",
-        optionB: "Bill Gates",
-        optionC: "Chris Brown",
-        optionD: "John Cena",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Where is the world tallest building located ?",
-        optionA: "Africa",
-        optionB: "California",
-        optionC: "Dubai",
-        optionD: "Italy",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "The longest river in the United Kingdom is ?",
-        optionA: "River Severn",
-        optionB: "River Mersey",
-        optionC: "River Trent",
-        optionD: "River Tweed",
-        correctOption: "optionA"
-    },
-
-
-    {
-        question: "How many permanent teeth does a dog have ?",
-        optionA: "38",
-        optionB: "42",
-        optionC: "40",
-        optionD: "36",
+        question: "Hva bør du gjøre hvis du får en SMS med en rar lenke?",
+        optionA: "Trykke på den for å se hva som skjer",
+        optionB: "Slette meldingen",
+        optionC: "Sende den videre til en venn",
+        optionD: "Svaret spiller ingen rolle",
         correctOption: "optionB"
     },
 
     {
-        question: "Which national team won the football World cup in 2018 ?",
-        optionA: "England",
-        optionB: "Brazil",
-        optionC: "Germany",
-        optionD: "France",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which US state was Donald Trump Born ?",
-        optionA: "New York",
-        optionB: "California",
-        optionC: "New Jersey",
-        optionD: "Los Angeles",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How man states does Nigeria have ?",
-        optionA: "24",
-        optionB: "30",
-        optionC: "36",
-        optionD: "37",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "____ is the capital of Nigeria ?",
-        optionA: "Abuja",
-        optionB: "Lagos",
-        optionC: "Calabar",
-        optionD: "Kano",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Los Angeles is also known as ?",
-        optionA: "Angels City",
-        optionB: "Shining city",
-        optionC: "City of Angels",
-        optionD: "Lost Angels",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "What is the capital of Germany ?",
-        optionA: "Georgia",
-        optionB: "Missouri",
-        optionC: "Oklahoma",
-        optionD: "Berlin",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "How many sides does an hexagon have ?",
-        optionA: "Six",
-        optionB: "Sevene",
-        optionC: "Four",
-        optionD: "Five",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How many planets are currently in the solar system ?",
-        optionA: "Eleven",
-        optionB: "Seven",
-        optionC: "Nine",
-        optionD: "Eight",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which Planet is the hottest ?",
-        optionA: "Jupitar",
-        optionB: "Mercury",
-        optionC: "Earth",
-        optionD: "Venus",
+        question: "Hvorfor bør du ikke bruke samme passord på alle tjenester?",
+        optionA: "Det er kjedelig",
+        optionB: "Da kan en angriper få tilgang til alt hvis ett passord blir lekket",
+        optionC: "Passordene blir for lange",
+        optionD: "Det er vanskelig å huske",
         correctOption: "optionB"
     },
 
     {
-        question: "where is the smallest bone in human body located?",
-        optionA: "Toes",
-        optionB: "Ears",
-        optionC: "Fingers",
-        optionD: "Nose",
+        question: "Hva er en enkel måte å lage et sterkt passord?",
+        optionA: "Bruke fødselsdatoen din",
+        optionB: "Bruke navnet ditt",
+        optionC: "Bruke en passordfrase med flere ord",
+        optionD: "Bruke bare tall",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Hva bør du gjøre med ukjente USB-minnepinner du finner?",
+        optionA: "Koble dem til PC-en for å sjekke innholdet",
+        optionB: "Gi dem til IT-ansvarlig",
+        optionC: "Bruke dem til lagring",
+        optionD: "Kaste dem i søpla",
         correctOption: "optionB"
     },
 
     {
-        question: "How many hearts does an Octopus have ?",
-        optionA: "One",
-        optionB: "Two",
-        optionC: "Three",
-        optionD: "Four",
-        correctOption: "optionC"
+        question: "Hva er tofaktorautentisering (2FA)?",
+        optionA: "To passord på rad",
+        optionB: "Et ekstra sikkerhetslag, f.eks. en kode på mobilen",
+        optionC: "En metode for å lagre passord",
+        optionD: "En type virusbeskyttelse",
+        correctOption: "optionB"
     },
 
     {
-        question: "How many teeth does an adult human have ?",
-        optionA: "28",
-        optionB: "30",
-        optionC: "32",
-        optionD: "36",
-        correctOption: "optionC"
+        question: "Hva er en god vane når du lager passord?",
+        optionA: "Bruke minst 16 tegn",
+        optionB: "Bruke navnet på barnebarnet ditt",
+        optionC: "Bruke telefonnummeret ditt",
+        optionD: "Bruke fødselsdatoen din",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Hva bør du gjøre hvis du er usikker på en lenke i en e-post?",
+        optionA: "Trykke på den for å sjekke",
+        optionB: "Navigere til nettsiden selv via nettleseren",
+        optionC: "Sende den til en venn",
+        optionD: "Ignorere den og håpe det går bra",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Hva er en enkel måte å beskytte privat informasjon på?",
+        optionA: "Bruke sterke passord og låse PC-en",
+        optionB: "Dele passord med venner",
+        optionC: "Skrive passord på en lapp på skjermen",
+        optionD: "Aldri oppdatere PC-en",
+        correctOption: "optionA"
     }
-
 ]
 
 
