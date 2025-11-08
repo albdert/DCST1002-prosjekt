@@ -1,2 +1,90 @@
-<h1> Du trykket på en farlig lenke </h1>
-<p> tenk deg om før du trykker på lenker i fremtiden !!</p>
+<!doctype html>
+<html>
+  <head>
+    <title>Farlig lenke</title>
+    <style>
+      /* Define the keyframes for the blinking animation */
+      @keyframes blinkred {
+        0% {
+          background-color: red;
+        } /* Start with red */
+        50% {
+          background-color: white;
+        } /* Transition to white at 50% of the animation */
+        100% {
+          background-color: red;
+        } /* Return to red at 100% */
+      }
+
+      /* Apply the animation to the body or a specific element */
+      body {
+        animation: blinkred 1s infinite; /* Apply the blinkred animation, 1s duration, infinite loop */
+      }
+
+      /* Or apply to a specific class */
+      .blinking-element {
+        animation: blinkred 1s infinite;
+      }
+
+      /* Grid wrapper */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr)); /* 2 columns */
+        gap: 20px;
+        max-width: 1100px;
+        margin: 24px auto;
+        margin-top: 20%;
+        align-items: stretch; /* make rows equal height when possible */
+        padding: 0 12px;
+      }
+
+      /* Each box */
+      .box {
+        background: #f7f9fb; /* soft background */
+        border: 1px solid #d1d7dd; /* subtle border */
+        border-radius: 10px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+        min-height: 180px; /* ensures consistent appearance */
+      }
+
+      /* header inside box */
+      .box > h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #08304a;
+      }
+
+      /* content area grows so footer (if any) stays at bottom */
+      .box-body {
+        flex: 1 1 auto;
+        color: #2b3b45;
+        line-height: 1.45;
+      }
+
+      /* hover effect */
+      .box:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container blinking-element">
+      <article class="box">
+        <h1 style="align-self: center"><u>Du trykket på en farlig lenke</u></h1>
+        <p style="align-self: center">
+          <b> Tenk deg om før du klikker lenker i fremtiden! </b>
+        </p>
+        <p style="align-self: center">
+          <a href="./index.html#falsk">Tilbake til hovedsiden</a>
+        </p>
+      </article>
+    </div>
+  </body>
+</html>
